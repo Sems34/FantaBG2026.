@@ -14,114 +14,314 @@
     --red:#e00000;
     --dim:#aaa;
   }
+
   * { box-sizing:border-box; }
+
   body {
-    margin:0; padding:16px;
-    background:#090909; color:var(--white);
+    margin:0;
+    padding:16px;
+    background:#090909;
+    color:var(--white);
     font-family:"Courier New", Courier, monospace;
   }
+
   .tv {
-    width:min(100%, 900px); margin:0 auto;
-    background:var(--black); border:0;
-    box-shadow:none; min-height:85vh;
+    width:min(100%, 900px);
+    margin:0 auto;
+    background:var(--black);
+    border:0;
+    box-shadow:none;
+    min-height:85vh;
   }
+
   .topbar {
-    display:flex; align-items:center; gap:8px;
-    padding:5px 8px; min-height:42px;
-    background:#8b0000; border:0; color:#fff;
-    font-weight:bold; white-space:nowrap; overflow:hidden;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:5px 8px;
+    min-height:42px;
+    background:#8b0000;
+    border:0;
+    color:#fff;
+    font-weight:bold;
+    white-space:nowrap;
+    overflow:hidden;
   }
+
   .page-chip {
-    background:#19865d; color:#fff; padding:5px 8px;
-    font-size:1rem; flex-shrink:0;
+    background:#19865d;
+    color:#fff;
+    padding:5px 8px;
+    font-size:1rem;
+    flex-shrink:0;
   }
-  .brand { color:#fff; font-size:clamp(.9rem, 2.5vw, 1.35rem); letter-spacing:0; font-weight:900; }
+
+  .brand {
+    color:#fff;
+    font-size:clamp(.9rem, 2.5vw, 1.35rem);
+    letter-spacing:0;
+    font-weight:900;
+  }
+
   .clock { display:none; }
+
   .subbar {
-    display:flex; align-items:stretch; justify-content:space-between; gap:8px;
-    padding:0; background:#000; border:0; color:var(--yellow);
-    min-height:96px; overflow:hidden;
+    display:flex;
+    align-items:stretch;
+    justify-content:space-between;
+    gap:8px;
+    padding:0;
+    background:#000;
+    border:0;
+    color:var(--yellow);
+    min-height:96px;
+    overflow:hidden;
   }
+
   .masthead {
-    background:var(--blue); color:#fff; font-size:clamp(2.4rem, 8vw, 5rem);
-    font-weight:900; line-height:1; padding:10px 14px 4px; letter-spacing:-4px;
-    flex:1; min-width:0;
+    background:var(--blue);
+    color:#fff;
+    font-size:clamp(2.4rem, 8vw, 5rem);
+    font-weight:900;
+    line-height:1;
+    padding:10px 14px 4px;
+    letter-spacing:-4px;
+    flex:1;
+    min-width:0;
   }
+
   .masthead small {
-    display:block; color:var(--yellow); font-size:1rem; letter-spacing:3px;
-    text-align:center; line-height:1.1; font-weight:bold;
+    display:block;
+    color:var(--yellow);
+    font-size:1rem;
+    letter-spacing:3px;
+    text-align:center;
+    line-height:1.1;
+    font-weight:bold;
   }
+
   .side-links {
-    background:var(--yellow); color:var(--blue); padding:8px 12px;
-    font-weight:bold; font-size:clamp(.8rem, 2.3vw, 1.35rem);
-    line-height:1.5; min-width:145px;
+    background:var(--yellow);
+    color:var(--blue);
+    padding:8px 12px;
+    font-weight:bold;
+    font-size:clamp(.8rem, 2.3vw, 1.35rem);
+    line-height:1.5;
+    min-width:145px;
   }
+
   nav {
-    display:flex; flex-wrap:wrap; gap:0; padding:0 0 8px;
-    background:#000; border:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    padding:0 0 8px;
+    background:#000;
+    border:0;
   }
+
   nav button {
-    border:0; border-top:6px solid var(--blue); border-bottom:2px solid var(--blue);
-    background:#000; color:var(--yellow); padding:7px 10px;
-    cursor:pointer; font:bold .9rem "Courier New", monospace;
+    border:0;
+    border-top:6px solid var(--blue);
+    border-bottom:2px solid var(--blue);
+    background:#000;
+    color:var(--yellow);
+    padding:7px 10px;
+    cursor:pointer;
+    font:bold .9rem "Courier New", monospace;
   }
-  nav button:hover, nav button.active { background:var(--blue); color:#fff; }
-  main { padding:12px 14px 26px; min-height:390px; background:#000; }
+
+  nav button:hover,
+  nav button.active {
+    background:var(--blue);
+    color:#fff;
+  }
+
+  main {
+    padding:12px 14px 26px;
+    min-height:390px;
+    background:#000;
+  }
+
   .page-title {
-    display:flex; justify-content:space-between; align-items:baseline; gap:12px;
-    color:var(--yellow); border:0; padding:0; margin:0 0 16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+    color:var(--yellow);
+    border:0;
+    padding:0;
+    margin:0 0 16px;
   }
-  h1 { font-size:1.2rem; margin:0; text-transform:uppercase; }
-  .page-no { color:var(--yellow); font-weight:bold; }
-  .notice { color:#ddd; font-size:.83rem; line-height:1.5; }
+
+  h1 {
+    font-size:1.2rem;
+    margin:0;
+    text-transform:uppercase;
+  }
+
+  .page-no {
+    color:var(--yellow);
+    font-weight:bold;
+  }
+
+  .notice {
+    color:#ddd;
+    font-size:.83rem;
+    line-height:1.5;
+  }
+
   .highlight { color:var(--yellow); }
   .green { color:var(--green); }
   .cyan { color:#48dfff; }
   .red { color:#ff5555; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; }
-  .panel { border:0; border-top:2px solid var(--blue); padding:12px 0; background:#000; }
-  .panel h2 { font-size:.95rem; color:var(--yellow); margin:0 0 10px; }
-  table { width:100%; border-collapse:collapse; font-size:clamp(.78rem, 2vw, .98rem); }
-  th { text-align:left; color:var(--yellow); border-bottom:2px solid var(--blue); padding:8px 5px; }
-  td { padding:7px 5px; border-bottom:0; }
+
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+  }
+
+  .panel {
+    border:0;
+    border-top:2px solid var(--blue);
+    padding:12px 0;
+    background:#000;
+  }
+
+  .panel h2 {
+    font-size:.95rem;
+    color:var(--yellow);
+    margin:0 0 10px;
+  }
+
+  table {
+    width:100%;
+    border-collapse:collapse;
+    font-size:clamp(.78rem, 2vw, .98rem);
+  }
+
+  th {
+    text-align:left;
+    color:var(--yellow);
+    border-bottom:2px solid var(--blue);
+    padding:8px 5px;
+  }
+
+  td {
+    padding:7px 5px;
+    border-bottom:0;
+  }
+
   tr:nth-child(even) { background:#000; }
-  .winner { color:var(--green); font-weight:bold; text-transform:uppercase; }
-  .loser { color:var(--white); text-transform:uppercase; }
-  .score { color:var(--white); font-weight:bold; white-space:nowrap; }
-  .tag { display:inline-block; padding:1px 4px; border:0; color:var(--green); font-size:.72rem; }
+
+  .winner {
+    color:var(--green);
+    font-weight:bold;
+    text-transform:uppercase;
+  }
+
+  .loser {
+    color:var(--white);
+    text-transform:uppercase;
+  }
+
+  .score {
+    color:var(--white);
+    font-weight:bold;
+    white-space:nowrap;
+  }
+
+  .tag {
+    display:inline-block;
+    padding:1px 4px;
+    border:0;
+    color:var(--green);
+    font-size:.72rem;
+  }
+
   .ticker {
-    color:#fff; background:var(--red); font-weight:bold; padding:10px 12px;
-    overflow-wrap:anywhere; border-top:3px solid #7e0000;
+    color:#fff;
+    background:var(--red);
+    font-weight:bold;
+    padding:10px 12px;
+    overflow-wrap:anywhere;
+    border-top:3px solid #7e0000;
   }
+
   .footer {
-    border:0; padding:10px 12px; display:flex; justify-content:space-between;
-    gap:10px; flex-wrap:wrap; color:#aaa; background:#111; font-size:.72rem;
+    border:0;
+    padding:10px 12px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+    color:#aaa;
+    background:#111;
+    font-size:.72rem;
   }
-  .record-row { display:flex; justify-content:space-between; gap:14px; padding:9px 0; border-bottom:1px dotted #333; }
-  .record-row span:last-child { color:var(--yellow); text-align:right; }
+
+  .record-row {
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    padding:9px 0;
+    border-bottom:1px dotted #333;
+  }
+
+  .record-row span:last-child {
+    color:var(--yellow);
+    text-align:right;
+  }
+
   @media(max-width:600px) {
     body { padding:0; }
+
     .tv { min-height:100vh; }
+
     .topbar { padding:4px; }
+
     .subbar { min-height:74px; }
-    .masthead { letter-spacing:-3px; padding:8px 8px 3px; }
-    .masthead small { font-size:.75rem; letter-spacing:2px; }
-    .side-links { min-width:118px; padding:7px; }
+
+    .masthead {
+      letter-spacing:-3px;
+      padding:8px 8px 3px;
+    }
+
+    .masthead small {
+      font-size:.75rem;
+      letter-spacing:2px;
+    }
+
+    .side-links {
+      min-width:118px;
+      padding:7px;
+    }
+
     main { padding:10px 12px 24px; }
-    nav button { padding:7px 6px; font-size:.78rem; }
-    th,td { padding:7px 3px; }
+
+    nav button {
+      padding:7px 6px;
+      font-size:.78rem;
+    }
+
+    th, td { padding:7px 3px; }
   }
 </style>
 </head>
+
 <body>
 <div class="tv">
+
   <header class="topbar">
     <div class="brand">▌FANTABASKET</div>
     <div class="clock" id="clock">BGBigReunion · EDIZIONE 2026/27</div>
   </header>
+
   <div class="subbar">
     <span>SPORT · FANTASY BASKET</span>
+    <span id="current-label">ULTIMO AGGIORNAMENTO: GARE 1–2</span>
   </div>
+
   <nav aria-label="Pagine FantaBG">
     <button class="active" data-page="201">201 Risultati</button>
     <button data-page="202">202 Classifica</button>
@@ -129,22 +329,28 @@
     <button data-page="204">204 Record</button>
     <button data-page="205">205 Calendario</button>
   </nav>
+
   <main id="content" aria-live="polite"></main>
-  <div class="ticker" id="ticker">RISULTATI FANTASY · CLASSIFICA · STATISTICHE — BGBIGREUNION</div>
+
+  <div class="ticker" id="ticker">
+    RISULTATI FANTASY · CLASSIFICA · STATISTICHE — BGBIGREUNION
+  </div>
+
   <footer class="footer">
-    <span> FANTABG · PAGINE 201–205</span>
+    <span>FANTABG · PAGINE 201–205</span>
   </footer>
+
 </div>
+
 <script>
 /*
   AGGIORNARE I DATI:
-  - results: aggiungi una riga per ogni matchup concluso, usando i nomi delle squadre
-    e i punteggi fantasy finali.
-  - upcoming: modifica i matchup della giornata successiva.
-  - La classifica viene ricalcolata automaticamente dai risultati inseriti.
+  - results: aggiungi una riga per ogni partita conclusa.
+  - upcoming: modifica gli incontri della giornata successiva.
+  - La classifica viene ricalcolata automaticamente.
 */
-const leagueName = "BGBigReunion";
 
+const leagueName = "BGBigReunion";
 const gameweek = 2;
 
 const results = [
@@ -166,124 +372,426 @@ const results = [
   {week: 2, away: "Golden State", awayScore: 102.7, home: "Coca", homeScore: 106.6},
   {week: 2, away: "Ufficio", awayScore: 151.1, home: "Portland", homeScore: 139.6}
 ];
-  
+
 const upcoming = [
-{week: 3, away: "Semsonite", home: "Gradisca"},
-{week: 3, away: "VaSulMus", home: "Detroit"},
-{week: 3, away: "Miami", home: "Monty"},
-{week: 3, away: "Ufficio", home: "Paerfetto"},
-{week: 3, away: "rualis", home: "Portland"},
-{week: 3, away: "Coca", home: "Wisp"},
-{week: 3, away: "giordi", home: "Golden State"}
+  {week: 3, away: "Semsonite", home: "Gradisca"},
+  {week: 3, away: "VaSulMus", home: "Detroit"},
+  {week: 3, away: "Miami", home: "Monty"},
+  {week: 3, away: "Ufficio", home: "Paerfetto"},
+  {week: 3, away: "rualis", home: "Portland"},
+  {week: 3, away: "Coca", home: "Wisp"},
+  {week: 3, away: "giordi", home: "Golden State"}
 ];
 
 const knownTeams = [
-  "Gradisca", "Semsonite", "giordi", "Ufficio", "Paerfetto", "Miami", "rualis",
-  "Monty", "Detroit", "Wisp", "VaSulMus", "Coca", "Golden State", "Portland"
+  "Gradisca", "Semsonite", "giordi", "Ufficio", "Paerfetto",
+  "Miami", "rualis", "Monty", "Detroit", "Wisp", "VaSulMus",
+  "Coca", "Golden State", "Portland"
 ];
 
 const fmt = n => Number(n).toFixed(1);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({
+  "&":"&amp;",
+  "<":"&lt;",
+  ">":"&gt;",
+  '"':"&quot;",
+  "'":"&#39;"
+}[c]));
 
 function buildStandings() {
   const map = {};
-  knownTeams.forEach(name => map[name] = {name, w:0, l:0, pf:0, pa:0, streak:"—", last:null});
+
+  knownTeams.forEach(name => {
+    map[name] = {
+      name,
+      w:0,
+      l:0,
+      pf:0,
+      pa:0,
+      streak:"—",
+      last:null
+    };
+  });
+
   const byTeam = {};
+
   results.forEach(g => {
-    [[g.away,g.awayScore,g.home,g.homeScore],[g.home,g.homeScore,g.away,g.awayScore]].forEach(([name,score,opp,oppScore]) => {
-      if (!map[name]) map[name] = {name, w:0,l:0,pf:0,pa:0,streak:"—",last:null};
-      map[name].pf += score; map[name].pa += oppScore;
+    [
+      [g.away, g.awayScore, g.home, g.homeScore],
+      [g.home, g.homeScore, g.away, g.awayScore]
+    ].forEach(([name, score, opp, oppScore]) => {
+      if (!map[name]) {
+        map[name] = {
+          name,
+          w:0,
+          l:0,
+          pf:0,
+          pa:0,
+          streak:"—",
+          last:null
+        };
+      }
+
+      map[name].pf += score;
+      map[name].pa += oppScore;
+
       const won = score > oppScore;
-      if (won) map[name].w++; else if (score < oppScore) map[name].l++;
+
+      if (won) {
+        map[name].w++;
+      } else if (score < oppScore) {
+        map[name].l++;
+      }
+
       const teamGames = byTeam[name] || [];
       teamGames.push(won ? "W" : score === oppScore ? "T" : "L");
       byTeam[name] = teamGames;
     });
   });
+
   Object.values(map).forEach(t => {
     const games = byTeam[t.name] || [];
+
     if (games.length) {
-      const last = games[games.length-1];
+      const last = games[games.length - 1];
       let count = 0;
-      for (let i=games.length-1; i>=0 && games[i]===last; i--) count++;
+
+      for (
+        let i = games.length - 1;
+        i >= 0 && games[i] === last;
+        i--
+      ) {
+        count++;
+      }
+
       t.streak = last + count;
     }
+
     t.diff = t.pf - t.pa;
   });
-  return Object.values(map).sort((a,b) => b.w-a.w || a.l-b.l || b.pf-a.pf || b.diff-a.diff || a.name.localeCompare(b.name));
+
+  return Object.values(map).sort(
+    (a, b) =>
+      b.w - a.w ||
+      a.l - b.l ||
+      b.pf - a.pf ||
+      b.diff - a.diff ||
+      a.name.localeCompare(b.name)
+  );
 }
-function winner(g) { return g.awayScore > g.homeScore ? g.away : g.home; }
+
+function winner(g) {
+  if (g.awayScore > g.homeScore) return g.away;
+  if (g.homeScore > g.awayScore) return g.home;
+  return "Pareggio";
+}
+
 function pageHeader(title, page) {
-  return `<div class="page-title"><h1>${title}</h1><span class="page-no">PAG. ${page}</span></div>`;
+  return `
+    <div class="page-title">
+      <h1>${title}</h1>
+      <span class="page-no">PAG. ${page}</span>
+    </div>
+  `;
 }
+
 function renderResults() {
-  const rows = [...results].sort((a,b) => b.week-a.week).map(g => {
-    const awayWin = g.awayScore > g.homeScore;
-    const homeWin = g.homeScore > g.awayScore;
-    return `<tr><td>G${g.week}</td><td class="${awayWin?'winner':'loser'}">${esc(g.away)}</td><td class="num score">${fmt(g.awayScore)}</td><td class="num score">${fmt(g.homeScore)}</td><td class="${homeWin?'winner':'loser'}">${esc(g.home)}</td></tr>`;
-  }).join("");
+  const rows = [...results]
+    .sort((a, b) => b.week - a.week)
+    .map(g => {
+      const awayWin = g.awayScore > g.homeScore;
+      const homeWin = g.homeScore > g.awayScore;
+
+      return `
+        <tr>
+          <td>G${g.week}</td>
+          <td class="${awayWin ? "winner" : "loser"}">${esc(g.away)}</td>
+          <td class="score">${fmt(g.awayScore)}</td>
+          <td class="score">${fmt(g.homeScore)}</td>
+          <td class="${homeWin ? "winner" : "loser"}">${esc(g.home)}</td>
+        </tr>
+      `;
+    }).join("");
+
   return pageHeader("RISULTATI DELLA LEGA", "201") +
-    `<p class="notice">Giornata fantasy 1 · 7 incontri conclusi. La squadra evidenziata in verde è la vincitrice.</p>
-     <div style="overflow-x:auto"><table><thead><tr><th>G.</th><th>Trasferta</th><th class="num">Punti</th><th class="num">Punti</th><th>Casa</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    `
+      <p class="notice">
+        Giornate 1–2 · ${results.length} incontri conclusi.
+        La squadra evidenziata in verde è la vincitrice.
+      </p>
+
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>G.</th>
+              <th>Trasferta</th>
+              <th>Punti</th>
+              <th>Punti</th>
+              <th>Casa</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    `;
 }
+
 function renderStandings() {
   const standings = buildStandings();
-  const rows = standings.map((t,i) => `<tr><td>${String(i+1).padStart(2,"0")}</td><td>${esc(t.name)}</td><td class="num">${t.w}-${t.l}</td><td class="num">${fmt(t.pf)}</td><td class="num">${fmt(t.pa)}</td><td class="num ${t.diff>=0?'green':'red'}">${t.diff>0?'+':''}${fmt(t.diff)}</td><td class="num">${t.streak}</td></tr>`).join("");
+
+  const rows = standings.map((t, i) => `
+    <tr>
+      <td>${String(i + 1).padStart(2, "0")}</td>
+      <td>${esc(t.name)}</td>
+      <td>${t.w}-${t.l}</td>
+      <td>${fmt(t.pf)}</td>
+      <td>${fmt(t.pa)}</td>
+      <td class="${t.diff >= 0 ? "green" : "red"}">
+        ${t.diff > 0 ? "+" : ""}${fmt(t.diff)}
+      </td>
+      <td>${t.streak}</td>
+    </tr>
+  `).join("");
+
   return pageHeader("CLASSIFICA GENERALE", "202") +
-    `<div style="overflow-x:auto"><table><thead><tr><th>#</th><th>Squadra</th><th class="num">V-P</th><th class="num">PF</th><th class="num">PS</th><th class="num">Diff.</th><th class="num">Serie</th></tr></thead><tbody>${rows}</tbody></table></div>
-     <p class="notice">PF = punti fatti · PS = punti subiti · Diff. = PF − PS · V-P = vittorie-sconfitte.</p>`;
+    `
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Squadra</th>
+              <th>V-P</th>
+              <th>PF</th>
+              <th>PS</th>
+              <th>Diff.</th>
+              <th>Serie</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+
+      <p class="notice">
+        PF = punti fatti · PS = punti subiti ·
+        Diff. = PF − PS · V-P = vittorie-sconfitte.
+      </p>
+    `;
 }
+
 function renderHighlights() {
-  const top = [...results].sort((a,b) => (b.awayScore>b.homeScore?b.awayScore:b.homeScore) - (a.awayScore>a.homeScore?a.awayScore:a.homeScore));
-  const biggest = [...results].sort((a,b) => Math.abs(b.awayScore-b.homeScore)-Math.abs(a.awayScore-a.homeScore))[0];
-  const allScores = results.flatMap(g => [{team:g.away, score:g.awayScore},{team:g.home,score:g.homeScore}]).sort((a,b)=>b.score-a.score);
-  const high = allScores[0], low = allScores[allScores.length-1];
-  const wins = results.filter(g=>g.awayScore!==g.homeScore).length;
+  const biggest = [...results].sort(
+    (a, b) =>
+      Math.abs(b.awayScore - b.homeScore) -
+      Math.abs(a.awayScore - a.homeScore)
+  )[0];
+
+  const allScores = results
+    .flatMap(g => [
+      {team:g.away, score:g.awayScore},
+      {team:g.home, score:g.homeScore}
+    ])
+    .sort((a, b) => b.score - a.score);
+
+  const high = allScores[0];
+  const low = allScores[allScores.length - 1];
+  const wins = results.filter(g => g.awayScore !== g.homeScore).length;
+
   return pageHeader("IN EVIDENZA", "203") +
-    `<div class="grid">
-      <section class="panel"><h2>◈ MIGLIOR PUNTEGGIO</h2><div class="highlight" style="font-size:1.45rem">${fmt(high.score)}</div><p class="green">${esc(high.team)}</p><p class="notice">Miglior punteggio di squadra dopo la gara 1.</p></section>
-      <section class="panel"><h2>◈ PUNTEGGIO PIÙ BASSO</h2><div class="highlight" style="font-size:1.45rem">${fmt(low.score)}</div><p>${esc(low.team)}</p><p class="notice">Punteggio più basso registrato nella giornata.</p></section>
-      <section class="panel"><h2>◈ VITTORIA PIÙ LARGA</h2><div class="highlight" style="font-size:1.45rem">+${fmt(Math.abs(biggest.awayScore-biggest.homeScore))}</div><p class="green">${esc(winner(biggest))}</p><p class="notice">${esc(biggest.away)} ${fmt(biggest.awayScore)} – ${fmt(biggest.homeScore)} ${esc(biggest.home)}</p></section>
-      <section class="panel"><h2>◈ GIORNATA</h2><div class="highlight" style="font-size:1.45rem">${wins} / ${results.length}</div><p>incontri con vincitore</p><p class="notice">Le statistiche si aggiornano aggiungendo risultati all'elenco nel codice.</p></section>
-    </div>`;
+    `
+      <div class="grid">
+
+        <section class="panel">
+          <h2>◈ MIGLIOR PUNTEGGIO</h2>
+          <div class="highlight" style="font-size:1.45rem">
+            ${fmt(high.score)}
+          </div>
+          <p class="green">${esc(high.team)}</p>
+          <p class="notice">Miglior punteggio registrato finora.</p>
+        </section>
+
+        <section class="panel">
+          <h2>◈ PUNTEGGIO PIÙ BASSO</h2>
+          <div class="highlight" style="font-size:1.45rem">
+            ${fmt(low.score)}
+          </div>
+          <p>${esc(low.team)}</p>
+          <p class="notice">Punteggio più basso registrato finora.</p>
+        </section>
+
+        <section class="panel">
+          <h2>◈ VITTORIA PIÙ LARGA</h2>
+          <div class="highlight" style="font-size:1.45rem">
+            +${fmt(Math.abs(biggest.awayScore - biggest.homeScore))}
+          </div>
+          <p class="green">${esc(winner(biggest))}</p>
+          <p class="notice">
+            ${esc(biggest.away)} ${fmt(biggest.awayScore)}
+            – ${fmt(biggest.homeScore)} ${esc(biggest.home)}
+          </p>
+        </section>
+
+        <section class="panel">
+          <h2>◈ INCONTRI CON VINCITORE</h2>
+          <div class="highlight" style="font-size:1.45rem">
+            ${wins} / ${results.length}
+          </div>
+          <p>Partite concluse</p>
+          <p class="notice">
+            Statistiche aggiornate dai risultati inseriti.
+          </p>
+        </section>
+
+      </div>
+    `;
 }
+
 function renderRecords() {
   const all = results.flatMap(g => [
-    {team:g.away, score:g.awayScore, opponent:g.home, oppScore:g.homeScore, week:g.week},
-    {team:g.home, score:g.homeScore, opponent:g.away, oppScore:g.awayScore, week:g.week}
+    {
+      team:g.away,
+      score:g.awayScore,
+      opponent:g.home,
+      oppScore:g.homeScore,
+      week:g.week
+    },
+    {
+      team:g.home,
+      score:g.homeScore,
+      opponent:g.away,
+      oppScore:g.awayScore,
+      week:g.week
+    }
   ]);
-  const high = [...all].sort((a,b)=>b.score-a.score)[0];
-  const low = [...all].sort((a,b)=>a.score-b.score)[0];
-  const margin = [...results].map(g=>({winner:winner(g), diff:Math.abs(g.awayScore-g.homeScore), matchup:`${g.away} – ${g.home}`})).sort((a,b)=>b.diff-a.diff)[0];
-  const close = [...results].map(g=>({winner:winner(g), diff:Math.abs(g.awayScore-g.homeScore), matchup:`${g.away} – ${g.home}`})).sort((a,b)=>a.diff-b.diff)[0];
+
+  const high = [...all].sort((a, b) => b.score - a.score)[0];
+  const low = [...all].sort((a, b) => a.score - b.score)[0];
+
+  const margin = [...results]
+    .map(g => ({
+      winner:winner(g),
+      diff:Math.abs(g.awayScore - g.homeScore),
+      matchup:`${g.away} – ${g.home}`
+    }))
+    .sort((a, b) => b.diff - a.diff)[0];
+
+  const close = [...results]
+    .map(g => ({
+      winner:winner(g),
+      diff:Math.abs(g.awayScore - g.homeScore),
+      matchup:`${g.away} – ${g.home}`
+    }))
+    .sort((a, b) => a.diff - b.diff)[0];
+
   return pageHeader("RECORD DELLA LEGA", "204") +
-    `<div class="panel">
-      <div class="record-row"><span>Punteggio massimo</span><span>${fmt(high.score)} · ${esc(high.team)}</span></div>
-      <div class="record-row"><span>Punteggio minimo</span><span>${fmt(low.score)} · ${esc(low.team)}</span></div>
-      <div class="record-row"><span>Vittoria più larga</span><span>+${fmt(margin.diff)} · ${esc(margin.winner)}</span></div>
-      <div class="record-row"><span>Incontro più equilibrato</span><span>+${fmt(close.diff)} · ${esc(close.matchup)}</span></div>
-      <div class="record-row"><span>Partite registrate</span><span>${results.length}</span></div>
-    </div>`;
+    `
+      <div class="panel">
+
+        <div class="record-row">
+          <span>Punteggio massimo</span>
+          <span>${fmt(high.score)} · ${esc(high.team)}</span>
+        </div>
+
+        <div class="record-row">
+          <span>Punteggio minimo</span>
+          <span>${fmt(low.score)} · ${esc(low.team)}</span>
+        </div>
+
+        <div class="record-row">
+          <span>Vittoria più larga</span>
+          <span>+${fmt(margin.diff)} · ${esc(margin.winner)}</span>
+        </div>
+
+        <div class="record-row">
+          <span>Incontro più equilibrato</span>
+          <span>+${fmt(close.diff)} · ${esc(close.matchup)}</span>
+        </div>
+
+        <div class="record-row">
+          <span>Partite registrate</span>
+          <span>${results.length}</span>
+        </div>
+
+      </div>
+    `;
 }
+
 function renderSchedule() {
-  const rows = upcoming.map(g=>`<tr><td>G${g.week}</td><td>${esc(g.away)}</td><td class="num cyan">VS</td><td>${esc(g.home)}</td><td class="num"><span class="tag">IN PROGRAMMA</span></td></tr>`).join("");
+  const rows = upcoming.map(g => `
+    <tr>
+      <td>G${g.week}</td>
+      <td>${esc(g.away)}</td>
+      <td class="cyan">VS</td>
+      <td>${esc(g.home)}</td>
+      <td><span class="tag">IN PROGRAMMA</span></td>
+    </tr>
+  `).join("");
+
   return pageHeader("PROSSIMI INCONTRI", "205") +
-    `<p class="notice">Prossima Giornata · calendario fantasy previsto.</p>
-     <div style="overflow-x:auto"><table><thead><tr><th>G.</th><th>Trasferta</th><th></th><th>Casa</th><th class="num">Stato</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    `
+      <p class="notice">
+        Giornata 3 · calendario fantasy previsto.
+      </p>
+
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>G.</th>
+              <th>Trasferta</th>
+              <th></th>
+              <th>Casa</th>
+              <th>Stato</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    `;
 }
-const pages = {"201":renderResults,"202":renderStandings,"203":renderHighlights,"204":renderRecords,"205":renderSchedule};
+
+const pages = {
+  "201":renderResults,
+  "202":renderStandings,
+  "203":renderHighlights,
+  "204":renderRecords,
+  "205":renderSchedule
+};
+
 function showPage(page) {
   document.getElementById("content").innerHTML = pages[page]();
-  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
-  const labels = {"201":"RISULTATI GARA 1","202":"CLASSIFICA DOPO GARA 1","203":"MOMENTI DELLA GIORNATA","204":"RECORD PROVVISORI","205":"PROSSIMA GIORNATA"};
+
+  document.querySelectorAll("nav button").forEach(button => {
+    button.classList.toggle("active", button.dataset.page === page);
+  });
+
+  const labels = {
+    "201":"RISULTATI GARE 1–2",
+    "202":"CLASSIFICA DOPO GARA 2",
+    "203":"MOMENTI DELLA LEGA",
+    "204":"RECORD PROVVISORI",
+    "205":"PROSSIMA GIORNATA"
+  };
+
   document.getElementById("current-label").textContent = labels[page];
-  document.getElementById("ticker").textContent = page==="202"
-    ? "CLASSIFICA AGGIORNATA AUTOMATICAMENTE DAI RISULTATI INSERITI"
-    : page==="205" ? "PROSSIMA GIORNATA: 7 INCONTRI IN PROGRAMMA"
-    : "BGBIGREUNION — RISULTATI E STATISTICHE DELLA LEGA";
+
+  document.getElementById("ticker").textContent =
+    page === "202"
+      ? "CLASSIFICA AGGIORNATA AUTOMATICAMENTE DAI RISULTATI INSERITI"
+      : page === "205"
+      ? "PROSSIMA GIORNATA: 7 INCONTRI IN PROGRAMMA"
+      : "BGBIGREUNION — RISULTATI E STATISTICHE DELLA LEGA";
 }
-document.querySelectorAll("nav button").forEach(button=>button.addEventListener("click",()=>showPage(button.dataset.page)));
-document.getElementById("clock").textContent = `${leagueName} · STAGIONE 2026/27`;
+
+document.querySelectorAll("nav button").forEach(button => {
+  button.addEventListener("click", () => showPage(button.dataset.page));
+});
+
+document.getElementById("clock").textContent =
+  `${leagueName} · STAGIONE 2026/27`;
+
 showPage("201");
 </script>
 </body>
