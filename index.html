@@ -148,23 +148,23 @@ const leagueName = "BGBigReunion";
 const gameweek = 1;
 
 const results = [
-  {week: 1, away: "Coca", awayScore: 104.0, home: "giordi", homeScore: 148.1},
-  {week: 1, away: "rualis", awayScore: 93.4, home: "Golden State", homeScore: 82.3},
-  {week: 1, away: "Ufficio", awayScore: 141.0, home: "Wisp", homeScore: 129.6},
-  {week: 1, away: "Miami", awayScore: 139.1, home: "Portland", homeScore: 81.6},
-  {week: 1, away: "VaSulMus", awayScore: 105.0, home: "Paerfetto", homeScore: 139.6},
-  {week: 1, away: "Gradisca", awayScore: 189.8, home: "Monty", homeScore: 147.6},
-  {week: 1, away: "Semsonite", awayScore: 153.1, home: "Detroit", homeScore: 144.6}
+  {week: 2, away: "giordi", awayScore: 132.5, home: "Semsonite", homeScore: 138.0},
+  {week: 2, away: "Detroit", awayScore: 118.8, home: "Gradisca", homeScore: 110.0},
+  {week: 2, away: "Monty", awayScore: 125.1, home: "VaSulMus", homeScore: 129.7},
+  {week: 2, away: "Paerfetto", awayScore: 130.7, home: "Miami", homeScore: 112.8},
+  {week: 2, away: "Wisp", awayScore: 109.9, home: "rualis", homeScore: 130.4},
+  {week: 2, away: "Golden State", awayScore: 102.7, home: "Coca", homeScore: 106.6},
+  {week: 2, away: "Ufficio", awayScore: 151.1, home: "Portland", homeScore: 139.6}
 ];
-
+  
 const upcoming = [
-  {week: 2, away: "giordi", home: "Semsonite"},
-  {week: 2, away: "Detroit", home: "Gradisca"},
-  {week: 2, away: "Monty", home: "VaSulMus"},
-  {week: 2, away: "Paerfetto", home: "Miami"},
-  {week: 2, away: "Ufficio", home: "Portland"},
-  {week: 2, away: "Wisp", home: "rualis"},
-  {week: 2, away: "Golden State", home: "Coca"}
+{week: 2, away: "Semsonite", home: "Gradisca"},
+{week: 2, away: "VaSulMus", home: "Detroit"},
+{week: 2, away: "Miami", home: "Monty"},
+{week: 2, away: "Ufficio", home: "Paerfetto"},
+{week: 2, away: "rualis", home: "Portland"},
+{week: 2, away: "Coca", home: "Wisp"},
+{week: 2, away: "giordi", home: "Golden State"}
 ];
 
 const knownTeams = [
@@ -258,7 +258,7 @@ function renderRecords() {
 function renderSchedule() {
   const rows = upcoming.map(g=>`<tr><td>G${g.week}</td><td>${esc(g.away)}</td><td class="num cyan">VS</td><td>${esc(g.home)}</td><td class="num"><span class="tag">IN PROGRAMMA</span></td></tr>`).join("");
   return pageHeader("PROSSIMI INCONTRI", "205") +
-    `<p class="notice">Giornata 2 · calendario fantasy previsto.</p>
+    `<p class="notice">Prossima Giornata · calendario fantasy previsto.</p>
      <div style="overflow-x:auto"><table><thead><tr><th>G.</th><th>Trasferta</th><th></th><th>Casa</th><th class="num">Stato</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 const pages = {"201":renderResults,"202":renderStandings,"203":renderHighlights,"204":renderRecords,"205":renderSchedule};
