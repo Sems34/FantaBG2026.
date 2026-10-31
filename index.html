@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -172,7 +171,7 @@ td { padding:7px 5px; }
 
   <div class="subbar">
     <span>SPORT · FANTASY BASKET</span>
-    <span id="current-label">ULTIMO AGGIORNAMENTO: GARA 3</span>
+    <span id="current-label">ULTIMO AGGIORNAMENTO: GARA 4</span>
   </div>
 
   <nav aria-label="Pagine FantaBG">
@@ -203,6 +202,7 @@ AGGIORNARE I DATI:
 */
 
 const leagueName = "BGBigReunion";
+const gameweek = 5;
 
 const results = [
   // GIORNATA 1
@@ -230,17 +230,27 @@ const results = [
   {week:3, away:"rualis", awayScore:131.1, home:"Portland", homeScore:124.6},
   {week:3, away:"Ufficio", awayScore:67.9, home:"Paerfetto", homeScore:133.4},
   {week:3, away:"Miami", awayScore:136.1, home:"Monty", homeScore:141.5},
-  {week:3, away:"VaSulMus", awayScore:125.2, home:"Detroit", homeScore:142.0}
+  {week:3, away:"VaSulMus", awayScore:125.2, home:"Detroit", homeScore:142.0},
+
+  // GIORNATA 4
+  {week:4, away:"Golden State", awayScore:128.6, home:"Semsonite", homeScore:142.0},
+  {week:4, away:"Gradisca", awayScore:118.9, home:"VaSulMus", homeScore:107.7},
+  {week:4, away:"Detroit", awayScore:100.0, home:"Miami", homeScore:164.2},
+  {week:4, away:"Monty", awayScore:115.9, home:"Ufficio", homeScore:138.2},
+  {week:4, away:"Paerfetto", awayScore:110.5, home:"rualis", homeScore:150.5},
+  {week:4, away:"Portland", awayScore:123.6, home:"Coca", homeScore:111.0},
+  {week:4, away:"Wisp", awayScore:85.6, home:"giordi", homeScore:125.9}
 ];
 
 const upcoming = [
-  {week:4, away:"Golden State", home:"Semsonite"},
-  {week:4, away:"Gradisca", home:"VaSulMus"},
-  {week:4, away:"Detroit", home:"Miami"},
-  {week:4, away:"Monty", home:"Ufficio"},
-  {week:4, away:"Paerfetto", home:"rualis"},
-  {week:4, away:"Portland", home:"Coca"},
-  {week:4, away:"Wisp", home:"giordi"}
+  // GIORNATA 5
+  {week:5, away:"Semsonite", home:"VaSulMus"},
+  {week:5, away:"Gradisca", home:"Miami"},
+  {week:5, away:"Ufficio", home:"Detroit"},
+  {week:5, away:"rualis", home:"Monty"},
+  {week:5, away:"Coca", home:"Paerfetto"},
+  {week:5, away:"giordi", home:"Portland"},
+  {week:5, away:"Golden State", home:"Wisp"}
 ];
 
 const knownTeams = [
@@ -340,7 +350,7 @@ function renderResults() {
 
   return pageHeader("RISULTATI DELLA LEGA","201") +
     `<p class="notice">
-      Giornate fantasy 1–3 · 21 incontri conclusi.
+      Giornate fantasy 1–4 · 28 incontri conclusi.
       La squadra evidenziata in verde è la vincitrice.
     </p>
     <div style="overflow-x:auto">
@@ -468,7 +478,7 @@ function renderSchedule() {
     </tr>`).join("");
 
   return pageHeader("PROSSIMI INCONTRI","205") +
-    `<p class="notice">Giornata 4 · incontri in programma.</p>
+    `<p class="notice">Giornata ${gameweek} · incontri in programma.</p>
     <div style="overflow-x:auto">
       <table>
         <thead>
@@ -495,11 +505,11 @@ function showPage(page) {
   });
 
   const labels = {
-    "201":"RISULTATI GARE 1–3",
-    "202":"CLASSIFICA DOPO GARA 3",
+    "201":"RISULTATI GARE 1–4",
+    "202":"CLASSIFICA DOPO GARA 4",
     "203":"MOMENTI DELLA LEGA",
     "204":"RECORD PROVVISORI",
-    "205":"GIORNATA 4 · IN PROGRAMMA"
+    "205":"GIORNATA 5 · IN PROGRAMMA"
   };
 
   document.getElementById("current-label").textContent = labels[page];
@@ -508,7 +518,7 @@ function showPage(page) {
     page==="202"
       ? "CLASSIFICA AGGIORNATA AUTOMATICAMENTE DAI RISULTATI INSERITI"
       : page==="205"
-        ? "GIORNATA 4: 7 INCONTRI IN PROGRAMMA"
+        ? `GIORNATA ${gameweek}: 7 INCONTRI IN PROGRAMMA`
         : "BGBIGREUNION — RISULTATI E STATISTICHE DELLA LEGA";
 }
 
