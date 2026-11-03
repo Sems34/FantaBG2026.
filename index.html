@@ -234,16 +234,6 @@ td { padding:7px 5px; }
   text-decoration:underline;
 }
 
-.box-link {
-  color:var(--cyan);
-  text-decoration:none;
-  font-size:.75rem;
-}
-
-.box-link:hover {
-  color:var(--yellow);
-  text-decoration:underline;
-}
 
 @media(max-width:600px) {
   body { padding:0; }
@@ -1621,23 +1611,7 @@ function renderResults() {
       const awayWin = g.awayScore > g.homeScore;
       const homeWin = g.homeScore > g.awayScore;
 
-      const boxIds = {
-        5: {
-          "Semsonite":"1/3",
-          "Gradisca":"2/4",
-          "Golden State":"9/10",
-          "giordi":"8/11",
-          "Coca":"7/12",
-          "rualis":"6/13",
-          "Ufficio":"5/14"
-        }
-      };
 
-      let boxLink = "";
-
-      if (g.week === 5 && boxIds[5][g.away]) {
-        boxLink = `https://sports.ws/fantasy-basketball/game/270328/5/${boxIds[5][g.away]}`;
-      }
 
       return `<tr>
         <td>G${g.week}</td>
@@ -1645,7 +1619,6 @@ function renderResults() {
         <td class="num score">${fmt(g.awayScore)}</td>
         <td class="num score">${fmt(g.homeScore)}</td>
         <td class="${homeWin?'winner':'loser'}">${esc(g.home)}</td>
-        <td>${boxLink ? `<a class="box-link" href="${boxLink}" target="_blank">BOX</a>` : ""}</td>
       </tr>`;
 
     }).join("");
