@@ -257,7 +257,6 @@ td { padding:7px 5px; }
 
   <div class="subbar">
     <span>SPORT · FANTASY BASKET</span>
-    <span id="current-label">ULTIMO AGGIORNAMENTO: GARA 5</span>
   </div>
 
   <nav aria-label="Pagine FantaBG">
@@ -340,7 +339,7 @@ const results = [
   {week:5, away:"giordi", awayScore:116.5, home:"Portland", homeScore:164.7},
   {week:5, away:"Coca", awayScore:88.1, home:"Paerfetto", homeScore:84.3},
   {week:5, away:"rualis", awayScore:149.5, home:"Monty", homeScore:133.5},
-  {week:5, away:"Ufficio", awayScore:130.1, home:"Detroit", homeScore:132.3}
+  {week:5, away:"Ufficio", awayScore:130.1, home:"Detroit", homeScore:132.3},
 
  
   // GIORNATA 6 - 4 NOVEMBRE
@@ -900,7 +899,7 @@ const results = [
 
 const upcoming = [
 
-   GIORNATA 7 - 5 NOVEMBRE
+   //GIORNATA 7 - 5 NOVEMBRE
   {week:7, date:"5 NOVEMBRE", away:"Semsonite", home:"Miami", id:"1/4"},
   {week:7, date:"5 NOVEMBRE", away:"Gradisca", home:"rualis", id:"2/6"},
   {week:7, date:"5 NOVEMBRE", away:"VaSulMus", home:"Ufficio", id:"3/5"},
@@ -1652,7 +1651,7 @@ function renderResults() {
     <div class="panel">
       <h2>◈ PROSSIMO APPUNTAMENTO</h2>
       <p class="notice">
-        La Game 6 si conclude il 4 novembre.
+        La Game 7 si conclude il 5 novembre.
         Sette incontri in programma: tutte le squadre tornano in campo
         per una nuova giornata di fantasy basket.
       </p>
@@ -1884,32 +1883,6 @@ function renderRecords() {
 }
 
 
-/* COMMENTI PROSSIME GIORNATE */
-
-const upcomingComments = {
-
-  6: [
-    "Wisp cerca il riscatto contro Semsonite, reduce dalla sconfitta contro VaSulMus.",
-    "Ufficio affronta Gradisca: sfida interessante tra due squadre che vogliono consolidare la propria posizione.",
-    "Miami e VaSulMus si incontrano dopo due risultati differenti nella Game 5. Attesa per una sfida importante.",
-    "Detroit arriva dalla vittoria di misura contro Ufficio e affronta rualis, reduce da un successo convincente.",
-    "Coca cerca continuità dopo la vittoria su Paerfetto. Monty proverà a reagire dopo la sconfitta contro rualis.",
-    "Paerfetto affronta giordi: entrambe le squadre cercano una prestazione importante per rilanciarsi.",
-    "Portland arriva dal miglior punteggio della Game 5. Golden State, però, ha dimostrato di essere in grande forma."
-  ]
-  
-  /*
-  
-  PROSSIME GARE
-  
-  
-  
-  
-  
-  */
-
-};
-
 
 /* PAGINA 205 - CALENDARIO */
 
@@ -1982,7 +1955,7 @@ function renderSchedule() {
   return pageHeader("PROSSIMI INCONTRI","205") +
 
     `<p class="notice">
-      Calendario delle Game 6, 7 e 8.
+      Calendario delle prossime partite.
       Seleziona MATCHUP per aprire la partita su Sports.ws.
     </p>
 
@@ -2020,11 +1993,11 @@ function showPage(page) {
   });
 
   const labels = {
-    "201":"RISULTATI GARE 1–5",
-    "202":"CLASSIFICA DOPO GARA 5",
+    "201":"RISULTATI GARE",
+    "202":"CLASSIFICA",
     "203":"MOMENTI DELLA LEGA",
     "204":"RECORD PROVVISORI",
-    "205":"GARE 6–8 · IN PROGRAMMA"
+    "205":"GARE IN PROGRAMMA"
   };
 
   document.getElementById("current-label").textContent =
@@ -2032,7 +2005,7 @@ function showPage(page) {
 
   document.getElementById("ticker").textContent =
     page==="202"
-      ? "CLASSIFICA AGGIORNATA AUTOMATICAMENTE DOPO LA GAME 5"
+      ? "CLASSIFICA AGGIORNATA AUTOMATICAMENTE"
       : page==="205"
         ? "GAME 6: 4 NOVEMBRE · GAME 7: 5 NOVEMBRE · GAME 8: 7 NOVEMBRE"
         : "BGBIGREUNION — RISULTATI E STATISTICHE DELLA LEGA";
