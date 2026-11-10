@@ -6,277 +6,328 @@
 <title>Fantabasket — BGBigReunion</title>
 
 <style>
-:root {
-  --black:#000;
-  --white:#f2f2f2;
-  --yellow:#ffe900;
-  --green:#00f000;
-  --blue:#0000e8;
-  --red:#e00000;
-  --dim:#aaa;
+* {
+  box-sizing: border-box;
 }
-
-* { box-sizing:border-box; }
 
 body {
-  margin:0;
-  padding:16px;
-  background:#090909;
-  color:var(--white);
-  font-family:"Courier New",Courier,monospace;
+  margin: 0;
+  padding: 20px;
+  background: #080808;
+  color: #fff;
+  font-family: "Courier New", monospace;
 }
 
-.tv {
-  width:min(100%,900px);
-  margin:0 auto;
-  background:var(--black);
-  min-height:85vh;
+#app {
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 3px solid #ddd;
+  background: #000;
 }
 
-.topbar {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:5px 8px;
-  min-height:42px;
-  background:#8b0000;
-  color:#fff;
-  font-weight:bold;
+header {
+  padding: 14px;
+  text-align: center;
+  background: #0000aa;
+  color: #fff;
+  border-bottom: 3px solid #fff;
 }
 
-.brand {
-  color:#fff;
-  font-size:clamp(.9rem,2.5vw,1.35rem);
-  font-weight:900;
+header h1 {
+  margin: 0;
+  color: #ffff00;
+  font-size: 30px;
+  letter-spacing: 2px;
 }
 
-.clock { display:none; }
-
-.subbar {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  padding:8px;
-  background:#000;
-  color:var(--yellow);
-  min-height:40px;
-  flex-wrap:wrap;
+header p {
+  margin: 7px 0 0;
+  color: #fff;
+  font-weight: bold;
 }
 
 nav {
-  display:flex;
-  flex-wrap:wrap;
-  padding:0 0 8px;
-  background:#000;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 5px;
+  background: #222;
+  border-bottom: 2px solid #fff;
 }
 
 nav button {
-  border:0;
-  border-top:6px solid var(--blue);
-  border-bottom:2px solid var(--blue);
-  background:#000;
-  color:var(--yellow);
-  padding:7px 10px;
-  cursor:pointer;
-  font:bold .9rem "Courier New",monospace;
+  flex: 1 1 100px;
+  padding: 10px 5px;
+  border: 0;
+  background: #0000aa;
+  color: #fff;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 nav button:hover,
 nav button.active {
-  background:var(--blue);
-  color:#fff;
+  background: #ffff00;
+  color: #000;
+}
+
+#ticker {
+  padding: 8px;
+  background: #ffff00;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid #fff;
 }
 
 main {
-  padding:12px 14px 26px;
-  min-height:390px;
-  background:#000;
+  min-height: 500px;
+  padding: 15px;
 }
 
 .page-title {
-  display:flex;
-  justify-content:space-between;
-  align-items:baseline;
-  gap:12px;
-  color:var(--yellow);
-  margin:0 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ffff00;
 }
 
-h1 { font-size:1.2rem; margin:0; }
-
-.notice {
-  color:#ddd;
-  font-size:.83rem;
-  line-height:1.5;
+.page-title h1 {
+  margin: 0;
+  color: #ffff00;
+  font-size: 22px;
 }
 
-.highlight { color:var(--yellow); }
-.green { color:var(--green); }
-.cyan { color:#48dfff; }
-.red { color:#ff5555; }
-
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:18px;
+.page-no {
+  padding: 4px 8px;
+  background: #0000aa;
+  color: #fff;
+  font-weight: bold;
 }
 
 .panel {
-  border-top:2px solid var(--blue);
-  padding:12px 0;
-  background:#000;
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #777;
+  background: #111;
 }
 
 .panel h2 {
-  font-size:.95rem;
-  color:var(--yellow);
-  margin:0 0 10px;
+  margin: 0 0 12px;
+  color: #00ffff;
+  font-size: 17px;
 }
 
 table {
-  width:100%;
-  border-collapse:collapse;
-  font-size:clamp(.78rem,2vw,.98rem);
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
 }
 
 th {
-  text-align:left;
-  color:var(--yellow);
-  border-bottom:2px solid var(--blue);
-  padding:8px 5px;
+  padding: 9px 6px;
+  background: #0000aa;
+  color: #ffff00;
+  text-align: left;
 }
 
-td { padding:7px 5px; }
-
-.winner {
-  color:var(--green);
-  font-weight:bold;
-  text-transform:uppercase;
+td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #444;
 }
 
-.loser {
-  color:var(--white);
-  text-transform:uppercase;
+tr:nth-child(even) {
+  background: #151515;
+}
+
+.num {
+  text-align: right;
+  font-weight: bold;
 }
 
 .score {
-  color:var(--white);
-  font-weight:bold;
-  white-space:nowrap;
+  color: #fff;
 }
 
-.tag {
-  display:inline-block;
-  color:var(--green);
-  font-size:.72rem;
+.winner {
+  color: #ffff00;
+  font-weight: bold;
 }
 
-.ticker {
-  color:#fff;
-  background:var(--red);
-  font-weight:bold;
-  padding:10px 12px;
-  overflow-wrap:anywhere;
+.loser {
+  color: #aaa;
 }
 
-.footer {
-  padding:10px 12px;
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap;
-  color:#aaa;
-  background:#111;
-  font-size:.72rem;
+.team-name {
+  color: #00ffff;
+  font-weight: bold;
 }
 
 .record-row {
-  display:flex;
-  justify-content:space-between;
-  gap:14px;
-  padding:9px 0;
-  border-bottom:1px dotted #333;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 9px 5px;
+  border-bottom: 1px solid #444;
 }
 
 .record-row span:last-child {
-  color:var(--yellow);
-  text-align:right;
+  color: #ffff00;
+  font-weight: bold;
+  text-align: right;
 }
 
 .comment {
-  border-left:3px solid var(--blue);
-  padding:8px 10px;
-  margin:9px 0;
-  background:#080808;
-  font-size:.84rem;
-  line-height:1.5;
+  padding: 10px;
+  margin-bottom: 7px;
+  background: #151515;
+  border-left: 4px solid #ffff00;
 }
 
-.comment strong { color:var(--yellow); }
+.comment strong {
+  color: #00ffff;
+}
+
+.highlight {
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #000066;
+  border: 1px solid #00ffff;
+}
+
+.highlight strong {
+  color: #ffff00;
+}
 
 .week-heading {
-  color:var(--yellow);
-  border-bottom:2px solid var(--blue);
-  padding:12px 0 7px;
-  margin-top:18px;
-  font-weight:bold;
+  margin: 18px 0 8px;
+  padding: 9px;
+  background: #0000aa;
+  color: #ffff00;
+  font-weight: bold;
 }
 
-.matchup-link {
-  color:#48dfff;
-  text-decoration:none;
-  font-size:.75rem;
+.matchup {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #444;
 }
 
-.matchup-link:hover {
-  color:var(--yellow);
-  text-decoration:underline;
+.matchup .away {
+  text-align: right;
 }
 
+.matchup .home {
+  text-align: left;
+}
 
-@media(max-width:600px) {
-  body { padding:0; }
-  .tv { min-height:100vh; }
-  .topbar { padding:4px; }
-  .subbar { min-height:40px; }
-  main { padding:10px 12px 24px; }
-  nav button { padding:7px 6px; font-size:.78rem; }
-  th,td { padding:7px 3px; }
+.matchup .vs {
+  color: #ffff00;
+  font-weight: bold;
+}
+
+.matchup .team {
+  color: #00ffff;
+  font-weight: bold;
+}
+
+.matchup .id {
+  display: block;
+  margin-top: 3px;
+  color: #888;
+  font-size: 11px;
+}
+
+a {
+  color: #00ffff;
+}
+
+a:hover {
+  color: #ffff00;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+  background: #0000aa;
+  color: #fff;
+  border-top: 2px solid #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.empty {
+  padding: 20px;
+  color: #aaa;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 5px;
+  }
+
+  header h1 {
+    font-size: 23px;
+  }
+
+  main {
+    padding: 8px;
+  }
+
+  table {
+    font-size: 11px;
+  }
+
+  td,
+  th {
+    padding: 6px 3px;
+  }
+
+  .matchup {
+    gap: 5px;
+    font-size: 12px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
 }
 </style>
 </head>
 
 <body>
-<div class="tv">
 
-  <header class="topbar">
-    <div class="brand">▌FANTABASKET</div>
-    <div class="clock" id="clock">BGBigReunion · EDIZIONE 2026/27</div>
-  </header>
+<div id="app">
 
-  <div class="subbar">
-    <span>SPORT · FANTASY BASKET</span>
-  </div>
+<header>
+  <h1>BG BIG REUNION</h1>
+  <p>FANTASY BASKETBALL LEAGUE · STAGIONE 2026/27</p>
+</header>
 
-  <nav aria-label="Pagine FantaBG">
-    <button class="active" data-page="201">201 Risultati</button>
-    <button data-page="202">202 Classifica</button>
-    <button data-page="203">203 In evidenza</button>
-    <button data-page="204">204 Record</button>
-    <button data-page="205">205 Calendario</button>
-  </nav>
+<nav>
+  <button data-page="201">201 RISULTATI</button>
+  <button data-page="202">202 CLASSIFICA</button>
+  <button data-page="203">203 IN EVIDENZA</button>
+  <button data-page="204">204 RECORD</button>
+  <button data-page="205">205 CALENDARIO</button>
+</nav>
 
-  <main id="content" aria-live="polite"></main>
+<div id="ticker">BGBIGREUNION — RISULTATI E STATISTICHE DELLA LEGA</div>
 
-  <div class="ticker" id="ticker">
-    BGBIGREUNION · RISULTATI · CLASSIFICA · PROSSIME SFIDE
-  </div>
+<main id="content"></main>
 
-  <footer class="footer">
-    <span>FANTABG · PAGINE 201–205</span>
-    <span>STAGIONE 2026/27</span>
-  </footer>
+<footer class="footer">
+  <span>FANTABG · PAGINE 201–205</span>
+  <span>STAGIONE 2026/27</span>
+</footer>
 
 </div>
 
@@ -290,7 +341,7 @@ AGGIORNARE I DATI:
 */
 
 const leagueName = "BGBigReunion";
-const gameweek = 9;
+const gameweek = 9; // ultima giornata conclusa
 
 /* RISULTATI DELLE GIORNATE CONCLUSE */
 
@@ -341,7 +392,6 @@ const results = [
   {week:5, away:"rualis", awayScore:149.5, home:"Monty", homeScore:133.5},
   {week:5, away:"Ufficio", awayScore:130.1, home:"Detroit", homeScore:132.3},
 
- 
   // GIORNATA 6 - 4 NOVEMBRE
   {week:6, date:"4 NOVEMBRE", away:"Wisp", awayScore:112.4, home:"Semsonite", homeScore:129.4, id:"10/1"},
   {week:6, date:"4 NOVEMBRE", away:"Ufficio", awayScore:154.3, home:"Gradisca", homeScore:131.6, id:"5/2"},
@@ -350,9 +400,8 @@ const results = [
   {week:6, date:"4 NOVEMBRE", away:"Coca", awayScore:114.1, home:"Monty", homeScore:120.1, id:"7/13"},
   {week:6, date:"4 NOVEMBRE", away:"Paerfetto", awayScore:121.7, home:"giordi", homeScore:152.1, id:"12/8"},
   {week:6, date:"4 NOVEMBRE", away:"Portland", awayScore:73.0, home:"Golden State", homeScore:96.4, id:"11/9"},
-    
 
-   // GIORNATA 7
+  // GIORNATA 7 - 5 NOVEMBRE
   {week:7, date:"5 NOVEMBRE", away:"Semsonite", awayScore:89.5, home:"Miami", homeScore:143.3, id:"1/4"},
   {week:7, date:"5 NOVEMBRE", away:"Gradisca", awayScore:107.2, home:"rualis", homeScore:137.1, id:"2/6"},
   {week:7, date:"5 NOVEMBRE", away:"VaSulMus", awayScore:110.3, home:"Ufficio", homeScore:167.2, id:"3/5"},
@@ -361,7 +410,7 @@ const results = [
   {week:7, date:"5 NOVEMBRE", away:"Golden State", awayScore:118.7, home:"Paerfetto", homeScore:83.3, id:"9/12"},
   {week:7, date:"5 NOVEMBRE", away:"Wisp", awayScore:118.9, home:"Portland", homeScore:135.6, id:"10/11"},
 
-  // GIORNATA 8
+  // GIORNATA 8 - 7 NOVEMBRE
   {week:8, date:"7 NOVEMBRE", away:"Portland", awayScore:128.0, home:"Semsonite", homeScore:123.6, id:"11/1"},
   {week:8, date:"7 NOVEMBRE", away:"Coca", awayScore:81.0, home:"Gradisca", homeScore:118.8, id:"7/2"},
   {week:8, date:"7 NOVEMBRE", away:"rualis", awayScore:131.6, home:"VaSulMus", homeScore:142.7, id:"6/3"},
@@ -370,1049 +419,46 @@ const results = [
   {week:8, date:"7 NOVEMBRE", away:"Monty", awayScore:104.6, home:"Golden State", homeScore:157.4, id:"13/9"},
   {week:8, date:"7 NOVEMBRE", away:"Paerfetto", awayScore:144.3, home:"Wisp", homeScore:103.9, id:"12/10"},
 
-  // GIORNATA 9
+  // GIORNATA 9 - 9 NOVEMBRE
   {week:9, date:"9 NOVEMBRE", away:"Semsonite", awayScore:104.9, home:"Ufficio", homeScore:111.8, id:"1/5"},
   {week:9, date:"9 NOVEMBRE", away:"Gradisca", awayScore:122.1, home:"giordi", homeScore:131.3, id:"2/8"},
   {week:9, date:"9 NOVEMBRE", away:"VaSulMus", awayScore:149.4, home:"Coca", homeScore:72.5, id:"3/7"},
   {week:9, date:"9 NOVEMBRE", away:"Miami", awayScore:109.5, home:"rualis", homeScore:126.5, id:"4/6"},
   {week:9, date:"9 NOVEMBRE", away:"Golden State", awayScore:119.3, home:"Detroit", homeScore:136.0, id:"9/14"},
   {week:9, date:"9 NOVEMBRE", away:"Wisp", awayScore:92.4, home:"Monty", homeScore:109.3, id:"10/13"},
-  {week:9, date:"9 NOVEMBRE", away:"Portland", awayScore:126.7, home:"Paerfetto", homeScore:74.7, id:"11/12"},
-  /*
-  // GIORNATA 10 - 11 NOVEMBRE
-  {week:10, date:"11 NOVEMBRE", away:"Paerfetto", awayScore:0, home:"Semsonite", homeScore:0, id:"12/1"},
-  {week:10, date:"11 NOVEMBRE", away:"Golden State", awayScore:0, home:"Gradisca", homeScore:0, id:"9/2"},
-  {week:10, date:"11 NOVEMBRE", away:"giordi", awayScore:0, home:"VaSulMus", homeScore:0, id:"8/3"},
-  {week:10, date:"11 NOVEMBRE", away:"Coca", awayScore:0, home:"Miami", homeScore:0, id:"7/4"},
-  {week:10, date:"11 NOVEMBRE", away:"rualis", awayScore:0, home:"Ufficio", homeScore:0, id:"6/5"},
-  {week:10, date:"11 NOVEMBRE", away:"Detroit", awayScore:0, home:"Wisp", homeScore:0, id:"14/10"},
-  {week:10, date:"11 NOVEMBRE", away:"Monty", awayScore:0, home:"Portland", homeScore:0, id:"13/11"},
-
-  // GIORNATA 11 - 14 NOVEMBRE
-  {week:11, date:"14 NOVEMBRE", away:"Semsonite", awayScore:0, home:"rualis", homeScore:0, id:"1/6"},
-  {week:11, date:"14 NOVEMBRE", away:"Gradisca", awayScore:0, home:"Wisp", homeScore:0, id:"2/10"},
-  {week:11, date:"14 NOVEMBRE", away:"VaSulMus", awayScore:0, home:"Golden State", homeScore:0, id:"3/9"},
-  {week:11, date:"14 NOVEMBRE", away:"Miami", awayScore:0, home:"giordi", homeScore:0, id:"4/8"},
-  {week:11, date:"14 NOVEMBRE", away:"Ufficio", awayScore:0, home:"Coca", homeScore:0, id:"5/7"},
-  {week:11, date:"14 NOVEMBRE", away:"Portland", awayScore:0, home:"Detroit", homeScore:0, id:"11/14"},
-  {week:11, date:"14 NOVEMBRE", away:"Paerfetto", awayScore:0, home:"Monty", homeScore:0, id:"12/13"},
-
-  // GIORNATA 12 - 16 NOVEMBRE
-  {week:12, date:"16 NOVEMBRE", away:"Monty", awayScore:0, home:"Semsonite", homeScore:0, id:"13/1"},
-  {week:12, date:"16 NOVEMBRE", away:"Portland", awayScore:0, home:"Gradisca", homeScore:0, id:"11/2"},
-  {week:12, date:"16 NOVEMBRE", away:"Wisp", awayScore:0, home:"VaSulMus", homeScore:0, id:"10/3"},
-  {week:12, date:"16 NOVEMBRE", away:"Golden State", awayScore:0, home:"Miami", homeScore:0, id:"9/4"},
-  {week:12, date:"16 NOVEMBRE", away:"giordi", awayScore:0, home:"Ufficio", homeScore:0, id:"8/5"},
-  {week:12, date:"16 NOVEMBRE", away:"rualis", awayScore:0, home:"Coca", homeScore:0, id:"6/7"},
-  {week:12, date:"16 NOVEMBRE", away:"Detroit", awayScore:0, home:"Paerfetto", homeScore:0, id:"14/12"},
-
-  // GIORNATA 13 - 18 NOVEMBRE
-  {week:13, date:"18 NOVEMBRE", away:"Semsonite", awayScore:0, home:"Coca", homeScore:0, id:"1/7"},
-  {week:13, date:"18 NOVEMBRE", away:"Gradisca", awayScore:0, home:"Paerfetto", homeScore:0, id:"2/12"},
-  {week:13, date:"18 NOVEMBRE", away:"VaSulMus", awayScore:0, home:"Portland", homeScore:0, id:"3/11"},
-  {week:13, date:"18 NOVEMBRE", away:"Miami", awayScore:0, home:"Wisp", homeScore:0, id:"4/10"},
-  {week:13, date:"18 NOVEMBRE", away:"Ufficio", awayScore:0, home:"Golden State", homeScore:0, id:"5/9"},
-  {week:13, date:"18 NOVEMBRE", away:"rualis", awayScore:0, home:"giordi", homeScore:0, id:"6/8"},
-  {week:13, date:"18 NOVEMBRE", away:"Monty", awayScore:0, home:"Detroit", homeScore:0, id:"13/14"},
-
-  // GIORNATA 14 - 20 NOVEMBRE
-  {week:14, date:"20 NOVEMBRE", away:"Detroit", awayScore:0, home:"Semsonite", homeScore:0, id:"14/1"},
-  {week:14, date:"20 NOVEMBRE", away:"Monty", awayScore:0, home:"Gradisca", homeScore:0, id:"13/2"},
-  {week:14, date:"20 NOVEMBRE", away:"Paerfetto", awayScore:0, home:"VaSulMus", homeScore:0, id:"12/3"},
-  {week:14, date:"20 NOVEMBRE", away:"Portland", awayScore:0, home:"Miami", homeScore:0, id:"11/4"},
-  {week:14, date:"20 NOVEMBRE", away:"Wisp", awayScore:0, home:"Ufficio", homeScore:0, id:"10/5"},
-  {week:14, date:"20 NOVEMBRE", away:"Golden State", awayScore:0, home:"rualis", homeScore:0, id:"9/6"},
-  {week:14, date:"20 NOVEMBRE", away:"giordi", awayScore:0, home:"Coca", homeScore:0, id:"8/7"},
-
-  // GIORNATA 15 - 22 NOVEMBRE
-  {week:15, date:"22 NOVEMBRE", away:"Semsonite", awayScore:0, home:"giordi", homeScore:0, id:"1/8"},
-  {week:15, date:"22 NOVEMBRE", away:"Gradisca", awayScore:0, home:"Detroit", homeScore:0, id:"2/14"},
-  {week:15, date:"22 NOVEMBRE", away:"VaSulMus", awayScore:0, home:"Monty", homeScore:0, id:"3/13"},
-  {week:15, date:"22 NOVEMBRE", away:"Miami", awayScore:0, home:"Paerfetto", homeScore:0, id:"4/12"},
-  {week:15, date:"22 NOVEMBRE", away:"Ufficio", awayScore:0, home:"Portland", homeScore:0, id:"5/11"},
-  {week:15, date:"22 NOVEMBRE", away:"rualis", awayScore:0, home:"Wisp", homeScore:0, id:"6/10"},
-  {week:15, date:"22 NOVEMBRE", away:"Coca", awayScore:0, home:"Golden State", homeScore:0, id:"7/9"},
-
-  // GIORNATA 16 - 24 NOVEMBRE
-  {week:16, date:"24 NOVEMBRE", away:"Gradisca", awayScore:0, home:"Semsonite", homeScore:0, id:"2/1"},
-  {week:16, date:"24 NOVEMBRE", away:"Detroit", awayScore:0, home:"VaSulMus", homeScore:0, id:"14/3"},
-  {week:16, date:"24 NOVEMBRE", away:"Monty", awayScore:0, home:"Miami", homeScore:0, id:"13/4"},
-  {week:16, date:"24 NOVEMBRE", away:"Paerfetto", awayScore:0, home:"Ufficio", homeScore:0, id:"12/5"},
-  {week:16, date:"24 NOVEMBRE", away:"Portland", awayScore:0, home:"rualis", homeScore:0, id:"11/6"},
-  {week:16, date:"24 NOVEMBRE", away:"Wisp", awayScore:0, home:"Coca", homeScore:0, id:"10/7"},
-  {week:16, date:"24 NOVEMBRE", away:"Golden State", awayScore:0, home:"giordi", homeScore:0, id:"9/8"},
-
-  // GIORNATA 17 - 27 NOVEMBRE
-  {week:17, date:"27 NOVEMBRE", away:"Semsonite", awayScore:0, home:"Golden State", homeScore:0, id:"1/9"},
-  {week:17, date:"27 NOVEMBRE", away:"VaSulMus", awayScore:0, home:"Gradisca", homeScore:0, id:"3/2"},
-  {week:17, date:"27 NOVEMBRE", away:"Miami", awayScore:0, home:"Detroit", homeScore:0, id:"4/14"},
-  {week:17, date:"27 NOVEMBRE", away:"Ufficio", awayScore:0, home:"Monty", homeScore:0, id:"5/13"},
-  {week:17, date:"27 NOVEMBRE", away:"rualis", awayScore:0, home:"Paerfetto", homeScore:0, id:"6/12"},
-  {week:17, date:"27 NOVEMBRE", away:"Coca", awayScore:0, home:"Portland", homeScore:0, id:"7/11"},
-  {week:17, date:"27 NOVEMBRE", away:"giordi", awayScore:0, home:"Wisp", homeScore:0, id:"8/10"},
-
-  // GIORNATA 18 - 29 NOVEMBRE
-  {week:18, date:"29 NOVEMBRE", away:"VaSulMus", awayScore:0, home:"Semsonite", homeScore:0, id:"3/1"},
-  {week:18, date:"29 NOVEMBRE", away:"Miami", awayScore:0, home:"Gradisca", homeScore:0, id:"4/2"},
-  {week:18, date:"29 NOVEMBRE", away:"Detroit", awayScore:0, home:"Ufficio", homeScore:0, id:"14/5"},
-  {week:18, date:"29 NOVEMBRE", away:"Monty", awayScore:0, home:"rualis", homeScore:0, id:"13/6"},
-  {week:18, date:"29 NOVEMBRE", away:"Paerfetto", awayScore:0, home:"Coca", homeScore:0, id:"12/7"},
-  {week:18, date:"29 NOVEMBRE", away:"Portland", awayScore:0, home:"giordi", homeScore:0, id:"11/8"},
-  {week:18, date:"29 NOVEMBRE", away:"Wisp", awayScore:0, home:"Golden State", homeScore:0, id:"10/9"},
-
-  // GIORNATA 19 - 30 NOVEMBRE
-  {week:19, date:"30 NOVEMBRE", away:"Semsonite", awayScore:0, home:"Wisp", homeScore:0, id:"1/10"},
-  {week:19, date:"30 NOVEMBRE", away:"Gradisca", awayScore:0, home:"Ufficio", homeScore:0, id:"2/5"},
-  {week:19, date:"30 NOVEMBRE", away:"VaSulMus", awayScore:0, home:"Miami", homeScore:0, id:"3/4"},
-  {week:19, date:"30 NOVEMBRE", away:"rualis", awayScore:0, home:"Detroit", homeScore:0, id:"6/14"},
-  {week:19, date:"30 NOVEMBRE", away:"Coca", awayScore:0, home:"Monty", homeScore:0, id:"7/13"},
-  {week:19, date:"30 NOVEMBRE", away:"giordi", awayScore:0, home:"Paerfetto", homeScore:0, id:"8/12"},
-  {week:19, date:"30 NOVEMBRE", away:"Golden State", awayScore:0, home:"Portland", homeScore:0, id:"9/11"},
-
-  // GIORNATA 20 - 2 DICEMBRE
-  {week:20, date:"2 DICEMBRE", away:"Miami", awayScore:0, home:"Semsonite", homeScore:0, id:"4/1"},
-  {week:20, date:"2 DICEMBRE", away:"rualis", awayScore:0, home:"Gradisca", homeScore:0, id:"6/2"},
-  {week:20, date:"2 DICEMBRE", away:"Ufficio", awayScore:0, home:"VaSulMus", homeScore:0, id:"5/3"},
-  {week:20, date:"2 DICEMBRE", away:"Detroit", awayScore:0, home:"Coca", homeScore:0, id:"14/7"},
-  {week:20, date:"2 DICEMBRE", away:"Monty", awayScore:0, home:"giordi", homeScore:0, id:"13/8"},
-  {week:20, date:"2 DICEMBRE", away:"Paerfetto", awayScore:0, home:"Golden State", homeScore:0, id:"12/9"},
-  {week:20, date:"2 DICEMBRE", away:"Portland", awayScore:0, home:"Wisp", homeScore:0, id:"11/10"},
-
-  // GIORNATA 21 - 12 DICEMBRE
-  {week:21, date:"12 DICEMBRE", away:"Semsonite", awayScore:0, home:"Portland", homeScore:0, id:"1/11"},
-  {week:21, date:"12 DICEMBRE", away:"Gradisca", awayScore:0, home:"Coca", homeScore:0, id:"2/7"},
-  {week:21, date:"12 DICEMBRE", away:"VaSulMus", awayScore:0, home:"rualis", homeScore:0, id:"3/6"},
-  {week:21, date:"12 DICEMBRE", away:"Ufficio", awayScore:0, home:"Miami", homeScore:0, id:"5/4"},
-  {week:21, date:"12 DICEMBRE", away:"giordi", awayScore:0, home:"Detroit", homeScore:0, id:"8/14"},
-  {week:21, date:"12 DICEMBRE", away:"Golden State", awayScore:0, home:"Monty", homeScore:0, id:"9/13"},
-  {week:21, date:"12 DICEMBRE", away:"Wisp", awayScore:0, home:"Paerfetto", homeScore:0, id:"10/12"},
-
-  // GIORNATA 22 - 15 DICEMBRE
-  {week:22, date:"15 DICEMBRE", away:"Ufficio", awayScore:0, home:"Semsonite", homeScore:0, id:"5/1"},
-  {week:22, date:"15 DICEMBRE", away:"giordi", awayScore:0, home:"Gradisca", homeScore:0, id:"8/2"},
-  {week:22, date:"15 DICEMBRE", away:"Coca", awayScore:0, home:"VaSulMus", homeScore:0, id:"7/3"},
-  {week:22, date:"15 DICEMBRE", away:"rualis", awayScore:0, home:"Miami", homeScore:0, id:"6/4"},
-  {week:22, date:"15 DICEMBRE", away:"Detroit", awayScore:0, home:"Golden State", homeScore:0, id:"14/9"},
-  {week:22, date:"15 DICEMBRE", away:"Monty", awayScore:0, home:"Wisp", homeScore:0, id:"13/10"},
-  {week:22, date:"15 DICEMBRE", away:"Paerfetto", awayScore:0, home:"Portland", homeScore:0, id:"12/11"},
-
-  // GIORNATA 23 - 17 DICEMBRE
-  {week:23, date:"17 DICEMBRE", away:"Semsonite", awayScore:0, home:"Paerfetto", homeScore:0, id:"1/12"},
-  {week:23, date:"17 DICEMBRE", away:"Gradisca", awayScore:0, home:"Golden State", homeScore:0, id:"2/9"},
-  {week:23, date:"17 DICEMBRE", away:"VaSulMus", awayScore:0, home:"giordi", homeScore:0, id:"3/8"},
-  {week:23, date:"17 DICEMBRE", away:"Miami", awayScore:0, home:"Coca", homeScore:0, id:"4/7"},
-  {week:23, date:"17 DICEMBRE", away:"Ufficio", awayScore:0, home:"rualis", homeScore:0, id:"5/6"},
-  {week:23, date:"17 DICEMBRE", away:"Wisp", awayScore:0, home:"Detroit", homeScore:0, id:"10/14"},
-  {week:23, date:"17 DICEMBRE", away:"Portland", awayScore:0, home:"Monty", homeScore:0, id:"11/13"},
-
-  // GIORNATA 24 - 19 DICEMBRE
-  {week:24, date:"19 DICEMBRE", away:"rualis", awayScore:0, home:"Semsonite", homeScore:0, id:"6/1"},
-  {week:24, date:"19 DICEMBRE", away:"Wisp", awayScore:0, home:"Gradisca", homeScore:0, id:"10/2"},
-  {week:24, date:"19 DICEMBRE", away:"VaSulMus", awayScore:0, home:"Golden State", homeScore:0, id:"3/9"},
-  {week:24, date:"19 DICEMBRE", away:"giordi", awayScore:0, home:"Miami", homeScore:0, id:"8/4"},
-  {week:24, date:"19 DICEMBRE", away:"Coca", awayScore:0, home:"Ufficio", homeScore:0, id:"7/5"},
-  {week:24, date:"19 DICEMBRE", away:"Detroit", awayScore:0, home:"Portland", homeScore:0, id:"14/11"},
-  {week:24, date:"19 DICEMBRE", away:"Monty", awayScore:0, home:"Paerfetto", homeScore:0, id:"13/12"},
-
-  // GIORNATA 25 - 21 DICEMBRE
-  {week:25, date:"21 DICEMBRE", away:"Semsonite", awayScore:0, home:"Monty", homeScore:0, id:"1/13"},
-  {week:25, date:"21 DICEMBRE", away:"Gradisca", awayScore:0, home:"Portland", homeScore:0, id:"2/11"},
-  {week:25, date:"21 DICEMBRE", away:"VaSulMus", awayScore:0, home:"Wisp", homeScore:0, id:"3/10"},
-  {week:25, date:"21 DICEMBRE", away:"Miami", awayScore:0, home:"Golden State", homeScore:0, id:"4/9"},
-  {week:25, date:"21 DICEMBRE", away:"Ufficio", awayScore:0, home:"giordi", homeScore:0, id:"5/8"},
-  {week:25, date:"21 DICEMBRE", away:"Coca", awayScore:0, home:"rualis", homeScore:0, id:"7/6"},
-  {week:25, date:"21 DICEMBRE", away:"Paerfetto", awayScore:0, home:"Detroit", homeScore:0, id:"12/14"},
- 
-  // GIORNATA 26 - 23 DICEMBRE
-  {week:26, date:"23 DICEMBRE", away:"Coca", awayScore:0, home:"Semsonite", homeScore:0, id:"7/1"},
-  {week:26, date:"23 DICEMBRE", away:"Paerfetto", awayScore:0, home:"Gradisca", homeScore:0, id:"12/2"},
-  {week:26, date:"23 DICEMBRE", away:"Portland", awayScore:0, home:"VaSulMus", homeScore:0, id:"11/3"},
-  {week:26, date:"23 DICEMBRE", away:"Wisp", awayScore:0, home:"Miami", homeScore:0, id:"10/4"},
-  {week:26, date:"23 DICEMBRE", away:"Golden State", awayScore:0, home:"Ufficio", homeScore:0, id:"9/5"},
-  {week:26, date:"23 DICEMBRE", away:"giordi", awayScore:0, home:"rualis", homeScore:0, id:"8/6"},
-  {week:26, date:"23 DICEMBRE", away:"Detroit", awayScore:0, home:"Monty", homeScore:0, id:"14/13"},
-
-  // GIORNATA 27 - 25 DICEMBRE
-  {week:27, date:"25 DICEMBRE", away:"Detroit", awayScore:0, home:"Semsonite", homeScore:0, id:"14/1"},
-  {week:27, date:"25 DICEMBRE", away:"Monty", awayScore:0, home:"Gradisca", homeScore:0, id:"13/2"},
-  {week:27, date:"25 DICEMBRE", away:"Paerfetto", awayScore:0, home:"VaSulMus", homeScore:0, id:"12/3"},
-  {week:27, date:"25 DICEMBRE", away:"Portland", awayScore:0, home:"Miami", homeScore:0, id:"11/4"},
-  {week:27, date:"25 DICEMBRE", away:"Wisp", awayScore:0, home:"Ufficio", homeScore:0, id:"10/5"},
-  {week:27, date:"25 DICEMBRE", away:"Golden State", awayScore:0, home:"rualis", homeScore:0, id:"9/6"},
-  {week:27, date:"25 DICEMBRE", away:"giordi", awayScore:0, home:"Coca", homeScore:0, id:"8/7"},
-
-  // GIORNATA 28 - 27 DICEMBRE
-  {week:28, date:"27 DICEMBRE", away:"giordi", awayScore:0, home:"Semsonite", homeScore:0, id:"8/1"},
-  {week:28, date:"27 DICEMBRE", away:"Detroit", awayScore:0, home:"Gradisca", homeScore:0, id:"14/2"},
-  {week:28, date:"27 DICEMBRE", away:"Monty", awayScore:0, home:"VaSulMus", homeScore:0, id:"13/3"},
-  {week:28, date:"27 DICEMBRE", away:"Paerfetto", awayScore:0, home:"Miami", homeScore:0, id:"12/4"},
-  {week:28, date:"27 DICEMBRE", away:"Portland", awayScore:0, home:"Ufficio", homeScore:0, id:"11/5"},
-  {week:28, date:"27 DICEMBRE", away:"Wisp", awayScore:0, home:"rualis", homeScore:0, id:"10/6"},
-  {week:28, date:"27 DICEMBRE", away:"Golden State", awayScore:0, home:"Coca", homeScore:0, id:"9/7"},
-
-  // GIORNATA 29 - 29 DICEMBRE
-  {week:29, date:"29 DICEMBRE", away:"Semsonite", awayScore:0, home:"Gradisca", homeScore:0, id:"1/2"},
-  {week:29, date:"29 DICEMBRE", away:"VaSulMus", awayScore:0, home:"Detroit", homeScore:0, id:"3/14"},
-  {week:29, date:"29 DICEMBRE", away:"Miami", awayScore:0, home:"Monty", homeScore:0, id:"4/13"},
-  {week:29, date:"29 DICEMBRE", away:"Ufficio", awayScore:0, home:"Paerfetto", homeScore:0, id:"5/12"},
-  {week:29, date:"29 DICEMBRE", away:"rualis", awayScore:0, home:"Portland", homeScore:0, id:"6/11"},
-  {week:29, date:"29 DICEMBRE", away:"Coca", awayScore:0, home:"Wisp", homeScore:0, id:"7/10"},
-  {week:29, date:"29 DICEMBRE", away:"giordi", awayScore:0, home:"Golden State", homeScore:0, id:"8/9"},
-
-  // GIORNATA 30 - 1 GENNAIO
-  {week:30, date:"1 GENNAIO", away:"Golden State", awayScore:0, home:"Semsonite", homeScore:0, id:"9/1"},
-  {week:30, date:"1 GENNAIO", away:"Gradisca", awayScore:0, home:"VaSulMus", homeScore:0, id:"2/3"},
-  {week:30, date:"1 GENNAIO", away:"Detroit", awayScore:0, home:"Miami", homeScore:0, id:"14/4"},
-  {week:30, date:"1 GENNAIO", away:"Monty", awayScore:0, home:"Ufficio", homeScore:0, id:"13/5"},
-  {week:30, date:"1 GENNAIO", away:"Paerfetto", awayScore:0, home:"rualis", homeScore:0, id:"12/6"},
-  {week:30, date:"1 GENNAIO", away:"Portland", awayScore:0, home:"Coca", homeScore:0, id:"11/7"},
-  {week:30, date:"1 GENNAIO", away:"Wisp", awayScore:0, home:"giordi", homeScore:0, id:"10/8"},
-
-  // GIORNATA 31 - 2 GENNAIO
-  {week:31, date:"2 GENNAIO", away:"Semsonite", awayScore:0, home:"VaSulMus", homeScore:0, id:"1/3"},
-  {week:31, date:"2 GENNAIO", away:"Gradisca", awayScore:0, home:"Miami", homeScore:0, id:"2/4"},
-  {week:31, date:"2 GENNAIO", away:"Ufficio", awayScore:0, home:"Detroit", homeScore:0, id:"5/14"},
-  {week:31, date:"2 GENNAIO", away:"rualis", awayScore:0, home:"Monty", homeScore:0, id:"6/13"},
-  {week:31, date:"2 GENNAIO", away:"Coca", awayScore:0, home:"Paerfetto", homeScore:0, id:"7/12"},
-  {week:31, date:"2 GENNAIO", away:"giordi", awayScore:0, home:"Portland", homeScore:0, id:"8/11"},
-  {week:31, date:"2 GENNAIO", away:"Golden State", awayScore:0, home:"Wisp", homeScore:0, id:"9/10"},
-
-  // GIORNATA 32 - 4 GENNAIO
-  {week:32, date:"4 GENNAIO", away:"Wisp", awayScore:0, home:"Semsonite", homeScore:0, id:"10/1"},
-  {week:32, date:"4 GENNAIO", away:"Ufficio", awayScore:0, home:"Gradisca", homeScore:0, id:"5/2"},
-  {week:32, date:"4 GENNAIO", away:"Miami", awayScore:0, home:"VaSulMus", homeScore:0, id:"4/3"},
-  {week:32, date:"4 GENNAIO", away:"Detroit", awayScore:0, home:"rualis", homeScore:0, id:"14/6"},
-  {week:32, date:"4 GENNAIO", away:"Monty", awayScore:0, home:"Coca", homeScore:0, id:"13/7"},
-  {week:32, date:"4 GENNAIO", away:"Paerfetto", awayScore:0, home:"giordi", homeScore:0, id:"12/8"},
-  {week:32, date:"4 GENNAIO", away:"Portland", awayScore:0, home:"Golden State", homeScore:0, id:"11/9"},
-
-  // GIORNATA 33 - 7 GENNAIO
-  {week:33, date:"7 GENNAIO", away:"Semsonite", awayScore:0, home:"Miami", homeScore:0, id:"1/4"},
-  {week:33, date:"7 GENNAIO", away:"Gradisca", awayScore:0, home:"rualis", homeScore:0, id:"2/6"},
-  {week:33, date:"7 GENNAIO", away:"VaSulMus", awayScore:0, home:"Ufficio", homeScore:0, id:"3/5"},
-  {week:33, date:"7 GENNAIO", away:"Coca", awayScore:0, home:"Detroit", homeScore:0, id:"7/14"},
-  {week:33, date:"7 GENNAIO", away:"giordi", awayScore:0, home:"Monty", homeScore:0, id:"8/13"},
-  {week:33, date:"7 GENNAIO", away:"Golden State", awayScore:0, home:"Paerfetto", homeScore:0, id:"9/12"},
-  {week:33, date:"7 GENNAIO", away:"Wisp", awayScore:0, home:"Portland", homeScore:0, id:"10/11"},
-
-  // GIORNATA 34 - 8 GENNAIO
-  {week:34, date:"8 GENNAIO", away:"Portland", awayScore:0, home:"Semsonite", homeScore:0, id:"11/1"},
-  {week:34, date:"8 GENNAIO", away:"Coca", awayScore:0, home:"Gradisca", homeScore:0, id:"7/2"},
-  {week:34, date:"8 GENNAIO", away:"rualis", awayScore:0, home:"VaSulMus", homeScore:0, id:"6/3"},
-  {week:34, date:"8 GENNAIO", away:"Miami", awayScore:0, home:"Ufficio", homeScore:0, id:"4/5"},
-  {week:34, date:"8 GENNAIO", away:"Detroit", awayScore:0, home:"giordi", homeScore:0, id:"14/8"},
-  {week:34, date:"8 GENNAIO", away:"Monty", awayScore:0, home:"Golden State", homeScore:0, id:"13/9"},
-  {week:34, date:"8 GENNAIO", away:"Paerfetto", awayScore:0, home:"Wisp", homeScore:0, id:"12/10"},
-
-  // GIORNATA 35 - 10 GENNAIO
-  {week:35, date:"10 GENNAIO", away:"Semsonite", awayScore:0, home:"Ufficio", homeScore:0, id:"1/5"},
-  {week:35, date:"10 GENNAIO", away:"Gradisca", awayScore:0, home:"giordi", homeScore:0, id:"2/8"},
-  {week:35, date:"10 GENNAIO", away:"VaSulMus", awayScore:0, home:"Coca", homeScore:0, id:"3/7"},
-  {week:35, date:"10 GENNAIO", away:"Miami", awayScore:0, home:"rualis", homeScore:0, id:"4/6"},
-  {week:35, date:"10 GENNAIO", away:"Golden State", awayScore:0, home:"Detroit", homeScore:0, id:"9/14"},
-  {week:35, date:"10 GENNAIO", away:"Wisp", awayScore:0, home:"Monty", homeScore:0, id:"10/13"},
-  {week:35, date:"10 GENNAIO", away:"Portland", awayScore:0, home:"Paerfetto", homeScore:0, id:"11/12"},
-
-  // GIORNATA 36 - 12 GENNAIO
-  {week:36, date:"12 GENNAIO", away:"Paerfetto", awayScore:0, home:"Semsonite", homeScore:0, id:"12/1"},
-  {week:36, date:"12 GENNAIO", away:"Golden State", awayScore:0, home:"Gradisca", homeScore:0, id:"9/2"},
-  {week:36, date:"12 GENNAIO", away:"giordi", awayScore:0, home:"VaSulMus", homeScore:0, id:"8/3"},
-  {week:36, date:"12 GENNAIO", away:"Coca", awayScore:0, home:"Miami", homeScore:0, id:"7/4"},
-  {week:36, date:"12 GENNAIO", away:"rualis", awayScore:0, home:"Ufficio", homeScore:0, id:"6/5"},
-  {week:36, date:"12 GENNAIO", away:"Detroit", awayScore:0, home:"Wisp", homeScore:0, id:"14/10"},
-  {week:36, date:"12 GENNAIO", away:"Monty", awayScore:0, home:"Portland", homeScore:0, id:"13/11"},
-
-  // GIORNATA 37 - 14 GENNAIO
-  {week:37, date:"14 GENNAIO", away:"Semsonite", awayScore:0, home:"rualis", homeScore:0, id:"1/6"},
-  {week:37, date:"14 GENNAIO", away:"Gradisca", awayScore:0, home:"Wisp", homeScore:0, id:"2/10"},
-  {week:37, date:"14 GENNAIO", away:"VaSulMus", awayScore:0, home:"Golden State", homeScore:0, id:"3/9"},
-  {week:37, date:"14 GENNAIO", away:"Miami", awayScore:0, home:"giordi", homeScore:0, id:"4/8"},
-  {week:37, date:"14 GENNAIO", away:"Ufficio", awayScore:0, home:"Coca", homeScore:0, id:"5/7"},
-  {week:37, date:"14 GENNAIO", away:"Portland", awayScore:0, home:"Detroit", homeScore:0, id:"11/14"},
-  {week:37, date:"14 GENNAIO", away:"Paerfetto", awayScore:0, home:"Monty", homeScore:0, id:"12/13"},
-
-  // GIORNATA 38 - 16 GENNAIO
-  {week:38, date:"16 GENNAIO", away:"Monty", awayScore:0, home:"Semsonite", homeScore:0, id:"13/1"},
-  {week:38, date:"16 GENNAIO", away:"Portland", awayScore:0, home:"Gradisca", homeScore:0, id:"11/2"},
-  {week:38, date:"16 GENNAIO", away:"Wisp", awayScore:0, home:"VaSulMus", homeScore:0, id:"10/3"},
-  {week:38, date:"16 GENNAIO", away:"Golden State", awayScore:0, home:"Miami", homeScore:0, id:"9/4"},
-  {week:38, date:"16 GENNAIO", away:"giordi", awayScore:0, home:"Ufficio", homeScore:0, id:"8/5"},
-  {week:38, date:"16 GENNAIO", away:"rualis", awayScore:0, home:"Coca", homeScore:0, id:"6/7"},
-  {week:38, date:"16 GENNAIO", away:"Detroit", awayScore:0, home:"Paerfetto", homeScore:0, id:"14/12"},
-
-  // GIORNATA 39 - 18 GENNAIO
-  {week:39, date:"18 GENNAIO", away:"Semsonite", awayScore:0, home:"Coca", homeScore:0, id:"1/7"},
-  {week:39, date:"18 GENNAIO", away:"Gradisca", awayScore:0, home:"Paerfetto", homeScore:0, id:"2/12"},
-  {week:39, date:"18 GENNAIO", away:"VaSulMus", awayScore:0, home:"Portland", homeScore:0, id:"3/11"},
-  {week:39, date:"18 GENNAIO", away:"Miami", awayScore:0, home:"Wisp", homeScore:0, id:"4/10"},
-  {week:39, date:"18 GENNAIO", away:"Ufficio", awayScore:0, home:"Golden State", homeScore:0, id:"5/9"},
-  {week:39, date:"18 GENNAIO", away:"rualis", awayScore:0, home:"giordi", homeScore:0, id:"6/8"},
-  {week:39, date:"18 GENNAIO", away:"Monty", awayScore:0, home:"Detroit", homeScore:0, id:"13/14"},
-
-  // GIORNATA 40 - 19 GENNAIO
-  {week:40, date:"19 GENNAIO", away:"Detroit", awayScore:0, home:"Semsonite", homeScore:0, id:"14/1"},
-  {week:40, date:"19 GENNAIO", away:"Monty", awayScore:0, home:"Gradisca", homeScore:0, id:"13/2"},
-  {week:40, date:"19 GENNAIO", away:"Paerfetto", awayScore:0, home:"VaSulMus", homeScore:0, id:"12/3"},
-  {week:40, date:"19 GENNAIO", away:"Portland", awayScore:0, home:"Miami", homeScore:0, id:"11/4"},
-  {week:40, date:"19 GENNAIO", away:"Wisp", awayScore:0, home:"Ufficio", homeScore:0, id:"10/5"},
-  {week:40, date:"19 GENNAIO", away:"Golden State", awayScore:0, home:"rualis", homeScore:0, id:"9/6"},
-  {week:40, date:"19 GENNAIO", away:"giordi", awayScore:0, home:"Coca", homeScore:0, id:"8/7"},
-
-  // GIORNATA 41 - 22 GENNAIO
-  {week:41, date:"22 GENNAIO", away:"Semsonite", awayScore:0, home:"giordi", homeScore:0, id:"1/8"},
-  {week:41, date:"22 GENNAIO", away:"Gradisca", awayScore:0, home:"Detroit", homeScore:0, id:"2/14"},
-  {week:41, date:"22 GENNAIO", away:"VaSulMus", awayScore:0, home:"Monty", homeScore:0, id:"3/13"},
-  {week:41, date:"22 GENNAIO", away:"Miami", awayScore:0, home:"Paerfetto", homeScore:0, id:"4/12"},
-  {week:41, date:"22 GENNAIO", away:"Ufficio", awayScore:0, home:"Portland", homeScore:0, id:"5/11"},
-  {week:41, date:"22 GENNAIO", away:"rualis", awayScore:0, home:"Wisp", homeScore:0, id:"6/10"},
-  {week:41, date:"22 GENNAIO", away:"Coca", awayScore:0, home:"Golden State", homeScore:0, id:"7/9"},
-
-  // GIORNATA 42 - 23 GENNAIO
-  {week:42, date:"23 GENNAIO", away:"Gradisca", awayScore:0, home:"Semsonite", homeScore:0, id:"2/1"},
-  {week:42, date:"23 GENNAIO", away:"Detroit", awayScore:0, home:"VaSulMus", homeScore:0, id:"14/3"},
-  {week:42, date:"23 GENNAIO", away:"Monty", awayScore:0, home:"Miami", homeScore:0, id:"13/4"},
-  {week:42, date:"23 GENNAIO", away:"Paerfetto", awayScore:0, home:"Ufficio", homeScore:0, id:"12/5"},
-  {week:42, date:"23 GENNAIO", away:"Portland", awayScore:0, home:"rualis", homeScore:0, id:"11/6"},
-  {week:42, date:"23 GENNAIO", away:"Wisp", awayScore:0, home:"Coca", homeScore:0, id:"10/7"},
-  {week:42, date:"23 GENNAIO", away:"Golden State", awayScore:0, home:"giordi", homeScore:0, id:"9/8"},
-
-  // GIORNATA 43 - 25 GENNAIO
-  {week:43, date:"25 GENNAIO", away:"Semsonite", awayScore:0, home:"Golden State", homeScore:0, id:"1/9"},
-  {week:43, date:"25 GENNAIO", away:"VaSulMus", awayScore:0, home:"Gradisca", homeScore:0, id:"3/2"},
-  {week:43, date:"25 GENNAIO", away:"Miami", awayScore:0, home:"Detroit", homeScore:0, id:"4/14"},
-  {week:43, date:"25 GENNAIO", away:"Ufficio", awayScore:0, home:"Monty", homeScore:0, id:"5/13"},
-  {week:43, date:"25 GENNAIO", away:"rualis", awayScore:0, home:"Paerfetto", homeScore:0, id:"6/12"},
-  {week:43, date:"25 GENNAIO", away:"Coca", awayScore:0, home:"Portland", homeScore:0, id:"7/11"},
-  {week:43, date:"25 GENNAIO", away:"giordi", awayScore:0, home:"Wisp", homeScore:0, id:"8/10"},
-
-  // GIORNATA 44 - 27 GENNAIO
-  {week:44, date:"27 GENNAIO", away:"VaSulMus", awayScore:0, home:"Semsonite", homeScore:0, id:"3/1"},
-  {week:44, date:"27 GENNAIO", away:"Miami", awayScore:0, home:"Gradisca", homeScore:0, id:"4/2"},
-  {week:44, date:"27 GENNAIO", away:"Detroit", awayScore:0, home:"Ufficio", homeScore:0, id:"14/5"},
-  {week:44, date:"27 GENNAIO", away:"Monty", awayScore:0, home:"rualis", homeScore:0, id:"13/6"},
-  {week:44, date:"27 GENNAIO", away:"Paerfetto", awayScore:0, home:"Coca", homeScore:0, id:"12/7"},
-  {week:44, date:"27 GENNAIO", away:"Portland", awayScore:0, home:"giordi", homeScore:0, id:"11/8"},
-  {week:44, date:"27 GENNAIO", away:"Wisp", awayScore:0, home:"Golden State", homeScore:0, id:"10/9"},
-
-  // GIORNATA 45 - 29 GENNAIO
-  {week:45, date:"29 GENNAIO", away:"Semsonite", awayScore:0, home:"Wisp", homeScore:0, id:"1/10"},
-  {week:45, date:"29 GENNAIO", away:"Gradisca", awayScore:0, home:"Ufficio", homeScore:0, id:"2/5"},
-  {week:45, date:"29 GENNAIO", away:"VaSulMus", awayScore:0, home:"Miami", homeScore:0, id:"3/4"},
-  {week:45, date:"29 GENNAIO", away:"rualis", awayScore:0, home:"Detroit", homeScore:0, id:"6/14"},
-  {week:45, date:"29 GENNAIO", away:"Coca", awayScore:0, home:"Monty", homeScore:0, id:"7/13"},
-  {week:45, date:"29 GENNAIO", away:"giordi", awayScore:0, home:"Paerfetto", homeScore:0, id:"8/12"},
-  {week:45, date:"29 GENNAIO", away:"Golden State", awayScore:0, home:"Portland", homeScore:0, id:"9/11"}, 
-   // GIORNATA 46 - 31 GENNAIO
-  {week:46, date:"31 GENNAIO", away:"Miami", awayScore:0, home:"Semsonite", homeScore:0, id:"4/1"},
-  {week:46, date:"31 GENNAIO", away:"rualis", awayScore:0, home:"Gradisca", homeScore:0, id:"6/2"},
-  {week:46, date:"31 GENNAIO", away:"Ufficio", awayScore:0, home:"VaSulMus", homeScore:0, id:"5/3"},
-  {week:46, date:"31 GENNAIO", away:"Detroit", awayScore:0, home:"Coca", homeScore:0, id:"14/7"},
-  {week:46, date:"31 GENNAIO", away:"Monty", awayScore:0, home:"giordi", homeScore:0, id:"13/8"},
-  {week:46, date:"31 GENNAIO", away:"Paerfetto", awayScore:0, home:"Golden State", homeScore:0, id:"12/9"},
-  {week:46, date:"31 GENNAIO", away:"Portland", awayScore:0, home:"Wisp", homeScore:0, id:"11/10"},
-
-  // GIORNATA 47 - 2 FEBBRAIO
-  {week:47, date:"2 FEBBRAIO", away:"Semsonite", awayScore:0, home:"Portland", homeScore:0, id:"1/11"},
-  {week:47, date:"2 FEBBRAIO", away:"Gradisca", awayScore:0, home:"Coca", homeScore:0, id:"2/7"},
-  {week:47, date:"2 FEBBRAIO", away:"VaSulMus", awayScore:0, home:"rualis", homeScore:0, id:"3/6"},
-  {week:47, date:"2 FEBBRAIO", away:"Ufficio", awayScore:0, home:"Miami", homeScore:0, id:"5/4"},
-  {week:47, date:"2 FEBBRAIO", away:"giordi", awayScore:0, home:"Detroit", homeScore:0, id:"8/14"},
-  {week:47, date:"2 FEBBRAIO", away:"Golden State", awayScore:0, home:"Monty", homeScore:0, id:"9/13"},
-  {week:47, date:"2 FEBBRAIO", away:"Wisp", awayScore:0, home:"Paerfetto", homeScore:0, id:"10/12"},
-
-  // GIORNATA 48 - 4 FEBBRAIO
-  {week:48, date:"4 FEBBRAIO", away:"Ufficio", awayScore:0, home:"Semsonite", homeScore:0, id:"5/1"},
-  {week:48, date:"4 FEBBRAIO", away:"giordi", awayScore:0, home:"Gradisca", homeScore:0, id:"8/2"},
-  {week:48, date:"4 FEBBRAIO", away:"Coca", awayScore:0, home:"VaSulMus", homeScore:0, id:"7/3"},
-  {week:48, date:"4 FEBBRAIO", away:"rualis", awayScore:0, home:"Miami", homeScore:0, id:"6/4"},
-  {week:48, date:"4 FEBBRAIO", away:"Detroit", awayScore:0, home:"Golden State", homeScore:0, id:"14/9"},
-  {week:48, date:"4 FEBBRAIO", away:"Monty", awayScore:0, home:"Wisp", homeScore:0, id:"13/10"},
-  {week:48, date:"4 FEBBRAIO", away:"Paerfetto", awayScore:0, home:"Portland", homeScore:0, id:"12/11"},
-
-  // GIORNATA 49 - 6 FEBBRAIO
-  {week:49, date:"6 FEBBRAIO", away:"Semsonite", awayScore:0, home:"Paerfetto", homeScore:0, id:"1/12"},
-  {week:49, date:"6 FEBBRAIO", away:"Gradisca", awayScore:0, home:"Golden State", homeScore:0, id:"2/9"},
-  {week:49, date:"6 FEBBRAIO", away:"VaSulMus", awayScore:0, home:"giordi", homeScore:0, id:"3/8"},
-  {week:49, date:"6 FEBBRAIO", away:"Miami", awayScore:0, home:"Coca", homeScore:0, id:"4/7"},
-  {week:49, date:"6 FEBBRAIO", away:"Ufficio", awayScore:0, home:"rualis", homeScore:0, id:"5/6"},
-  {week:49, date:"6 FEBBRAIO", away:"Wisp", awayScore:0, home:"Detroit", homeScore:0, id:"10/14"},
-  {week:49, date:"6 FEBBRAIO", away:"Portland", awayScore:0, home:"Monty", homeScore:0, id:"11/13"},
-
-  // GIORNATA 50 - 7 FEBBRAIO
-  {week:50, date:"7 FEBBRAIO", away:"rualis", awayScore:0, home:"Semsonite", homeScore:0, id:"6/1"},
-  {week:50, date:"7 FEBBRAIO", away:"Wisp", awayScore:0, home:"Gradisca", homeScore:0, id:"10/2"},
-  {week:50, date:"7 FEBBRAIO", away:"Golden State", awayScore:0, home:"VaSulMus", homeScore:0, id:"9/3"},
-  {week:50, date:"7 FEBBRAIO", away:"giordi", awayScore:0, home:"Miami", homeScore:0, id:"8/4"},
-  {week:50, date:"7 FEBBRAIO", away:"Coca", awayScore:0, home:"Ufficio", homeScore:0, id:"7/5"},
-  {week:50, date:"7 FEBBRAIO", away:"Detroit", awayScore:0, home:"Portland", homeScore:0, id:"14/11"},
-  {week:50, date:"7 FEBBRAIO", away:"Monty", awayScore:0, home:"Paerfetto", homeScore:0, id:"13/12"},
-
-  // GIORNATA 51 - 9 FEBBRAIO
-  {week:51, date:"9 FEBBRAIO", away:"Semsonite", awayScore:0, home:"Monty", homeScore:0, id:"1/13"},
-  {week:51, date:"9 FEBBRAIO", away:"Gradisca", awayScore:0, home:"Portland", homeScore:0, id:"2/11"},
-  {week:51, date:"9 FEBBRAIO", away:"VaSulMus", awayScore:0, home:"Wisp", homeScore:0, id:"3/10"},
-  {week:51, date:"9 FEBBRAIO", away:"Miami", awayScore:0, home:"Golden State", homeScore:0, id:"4/9"},
-  {week:51, date:"9 FEBBRAIO", away:"Ufficio", awayScore:0, home:"giordi", homeScore:0, id:"5/8"},
-  {week:51, date:"9 FEBBRAIO", away:"Coca", awayScore:0, home:"rualis", homeScore:0, id:"7/6"},
-  {week:51, date:"9 FEBBRAIO", away:"Paerfetto", awayScore:0, home:"Detroit", homeScore:0, id:"12/14"},
-
-  // GIORNATA 52 - 11 FEBBRAIO
-  {week:52, date:"11 FEBBRAIO", away:"Coca", awayScore:0, home:"Semsonite", homeScore:0, id:"7/1"},
-  {week:52, date:"11 FEBBRAIO", away:"Paerfetto", awayScore:0, home:"Gradisca", homeScore:0, id:"12/2"},
-  {week:52, date:"11 FEBBRAIO", away:"Portland", awayScore:0, home:"VaSulMus", homeScore:0, id:"11/3"},
-  {week:52, date:"11 FEBBRAIO", away:"Wisp", awayScore:0, home:"Miami", homeScore:0, id:"10/4"},
-  {week:52, date:"11 FEBBRAIO", away:"Golden State", awayScore:0, home:"Ufficio", homeScore:0, id:"9/5"},
-  {week:52, date:"11 FEBBRAIO", away:"giordi", awayScore:0, home:"rualis", homeScore:0, id:"8/6"},
-  {week:52, date:"11 FEBBRAIO", away:"Detroit", awayScore:0, home:"Monty", homeScore:0, id:"14/13"},
-
-  // GIORNATA 53 - 13 FEBBRAIO
-  {week:53, date:"13 FEBBRAIO", away:"Semsonite", awayScore:0, home:"Detroit", homeScore:0, id:"1/14"},
-  {week:53, date:"13 FEBBRAIO", away:"Gradisca", awayScore:0, home:"Monty", homeScore:0, id:"2/13"},
-  {week:53, date:"13 FEBBRAIO", away:"VaSulMus", awayScore:0, home:"Paerfetto", homeScore:0, id:"3/12"},
-  {week:53, date:"13 FEBBRAIO", away:"Miami", awayScore:0, home:"Portland", homeScore:0, id:"4/11"},
-  {week:53, date:"13 FEBBRAIO", away:"Ufficio", awayScore:0, home:"Wisp", homeScore:0, id:"5/10"},
-  {week:53, date:"13 FEBBRAIO", away:"rualis", awayScore:0, home:"Golden State", homeScore:0, id:"6/9"},
-  {week:53, date:"13 FEBBRAIO", away:"Coca", awayScore:0, home:"giordi", homeScore:0, id:"7/8"},
-
-  // GIORNATA 54 - 15 FEBBRAIO
-  {week:54, date:"15 FEBBRAIO", away:"giordi", awayScore:0, home:"Semsonite", homeScore:0, id:"8/1"},
-  {week:54, date:"15 FEBBRAIO", away:"Detroit", awayScore:0, home:"Gradisca", homeScore:0, id:"14/2"},
-  {week:54, date:"15 FEBBRAIO", away:"Monty", awayScore:0, home:"VaSulMus", homeScore:0, id:"13/3"},
-  {week:54, date:"15 FEBBRAIO", away:"Paerfetto", awayScore:0, home:"Miami", homeScore:0, id:"12/4"},
-  {week:54, date:"15 FEBBRAIO", away:"Portland", awayScore:0, home:"Ufficio", homeScore:0, id:"11/5"},
-  {week:54, date:"15 FEBBRAIO", away:"Wisp", awayScore:0, home:"rualis", homeScore:0, id:"10/6"},
-  {week:54, date:"15 FEBBRAIO", away:"Golden State", awayScore:0, home:"Coca", homeScore:0, id:"9/7"},
-
-  // GIORNATA 55 - 17 FEBBRAIO
-  {week:55, date:"17 FEBBRAIO", away:"Semsonite", awayScore:0, home:"Gradisca", homeScore:0, id:"1/2"},
-  {week:55, date:"17 FEBBRAIO", away:"VaSulMus", awayScore:0, home:"Detroit", homeScore:0, id:"3/14"},
-  {week:55, date:"17 FEBBRAIO", away:"Miami", awayScore:0, home:"Monty", homeScore:0, id:"4/13"},
-  {week:55, date:"17 FEBBRAIO", away:"Ufficio", awayScore:0, home:"Paerfetto", homeScore:0, id:"5/12"},
-  {week:55, date:"17 FEBBRAIO", away:"rualis", awayScore:0, home:"Portland", homeScore:0, id:"6/11"},
-  {week:55, date:"17 FEBBRAIO", away:"Coca", awayScore:0, home:"Wisp", homeScore:0, id:"7/10"},
-  {week:55, date:"17 FEBBRAIO", away:"giordi", awayScore:0, home:"Golden State", homeScore:0, id:"8/9"},
-
-  // GIORNATA 56 - 25 FEBBRAIO
-  {week:56, date:"25 FEBBRAIO", away:"Golden State", awayScore:0, home:"Semsonite", homeScore:0, id:"9/1"},
-  {week:56, date:"25 FEBBRAIO", away:"Gradisca", awayScore:0, home:"VaSulMus", homeScore:0, id:"2/3"},
-  {week:56, date:"25 FEBBRAIO", away:"Detroit", awayScore:0, home:"Miami", homeScore:0, id:"14/4"},
-  {week:56, date:"25 FEBBRAIO", away:"Monty", awayScore:0, home:"Ufficio", homeScore:0, id:"13/5"},
-  {week:56, date:"25 FEBBRAIO", away:"Paerfetto", awayScore:0, home:"rualis", homeScore:0, id:"12/6"},
-  {week:56, date:"25 FEBBRAIO", away:"Portland", awayScore:0, home:"Coca", homeScore:0, id:"11/7"},
-  {week:56, date:"25 FEBBRAIO", away:"Wisp", awayScore:0, home:"giordi", homeScore:0, id:"10/8"},
-
-  // GIORNATA 57 - 27 FEBBRAIO
-  {week:57, date:"27 FEBBRAIO", away:"Semsonite", awayScore:0, home:"VaSulMus", homeScore:0, id:"1/3"},
-  {week:57, date:"27 FEBBRAIO", away:"Gradisca", awayScore:0, home:"Miami", homeScore:0, id:"2/4"},
-  {week:57, date:"27 FEBBRAIO", away:"Ufficio", awayScore:0, home:"Detroit", homeScore:0, id:"5/14"},
-  {week:57, date:"27 FEBBRAIO", away:"rualis", awayScore:0, home:"Monty", homeScore:0, id:"6/13"},
-  {week:57, date:"27 FEBBRAIO", away:"Coca", awayScore:0, home:"Paerfetto", homeScore:0, id:"7/12"},
-  {week:57, date:"27 FEBBRAIO", away:"giordi", awayScore:0, home:"Portland", homeScore:0, id:"8/11"},
-  {week:57, date:"27 FEBBRAIO", away:"Golden State", awayScore:0, home:"Wisp", homeScore:0, id:"9/10"},
-
-  // GIORNATA 58 - 1 MARZO
-  {week:58, date:"1 MARZO", away:"Wisp", awayScore:0, home:"Semsonite", homeScore:0, id:"10/1"},
-  {week:58, date:"1 MARZO", away:"Ufficio", awayScore:0, home:"Gradisca", homeScore:0, id:"5/2"},
-  {week:58, date:"1 MARZO", away:"Miami", awayScore:0, home:"VaSulMus", homeScore:0, id:"4/3"},
-  {week:58, date:"1 MARZO", away:"Detroit", awayScore:0, home:"rualis", homeScore:0, id:"14/6"},
-  {week:58, date:"1 MARZO", away:"Monty", awayScore:0, home:"Coca", homeScore:0, id:"13/7"},
-  {week:58, date:"1 MARZO", away:"Paerfetto", awayScore:0, home:"giordi", homeScore:0, id:"12/8"},
-  {week:58, date:"1 MARZO", away:"Portland", awayScore:0, home:"Golden State", homeScore:0, id:"11/9"},
-
-  // GIORNATA 59 - 2 MARZO
-  {week:59, date:"2 MARZO", away:"Semsonite", awayScore:0, home:"Miami", homeScore:0, id:"1/4"},
-  {week:59, date:"2 MARZO", away:"Gradisca", awayScore:0, home:"rualis", homeScore:0, id:"2/6"},
-  {week:59, date:"2 MARZO", away:"VaSulMus", awayScore:0, home:"Ufficio", homeScore:0, id:"3/5"},
-  {week:59, date:"2 MARZO", away:"Coca", awayScore:0, home:"Detroit", homeScore:0, id:"7/14"},
-  {week:59, date:"2 MARZO", away:"giordi", awayScore:0, home:"Monty", homeScore:0, id:"8/13"},
-  {week:59, date:"2 MARZO", away:"Golden State", awayScore:0, home:"Paerfetto", homeScore:0, id:"9/12"},
-  {week:59, date:"2 MARZO", away:"Wisp", awayScore:0, home:"Portland", homeScore:0, id:"10/11"},
-
-  // GIORNATA 60 - 4 MARZO
-  {week:60, date:"4 MARZO", away:"Portland", awayScore:0, home:"Semsonite", homeScore:0, id:"11/1"},
-  {week:60, date:"4 MARZO", away:"Coca", awayScore:0, home:"Gradisca", homeScore:0, id:"7/2"},
-  {week:60, date:"4 MARZO", away:"rualis", awayScore:0, home:"VaSulMus", homeScore:0, id:"6/3"},
-  {week:60, date:"4 MARZO", away:"Miami", awayScore:0, home:"Ufficio", homeScore:0, id:"4/5"},
-  {week:60, date:"4 MARZO", away:"Detroit", awayScore:0, home:"giordi", homeScore:0, id:"14/8"},
-  {week:60, date:"4 MARZO", away:"Monty", awayScore:0, home:"Golden State", homeScore:0, id:"13/9"},
-  {week:60, date:"4 MARZO", away:"Paerfetto", awayScore:0, home:"Wisp", homeScore:0, id:"12/10"},
-
-  // GIORNATA 61 - 8 MARZO
-  {week:61, date:"8 MARZO", away:"Semsonite", awayScore:0, home:"Ufficio", homeScore:0, id:"1/5"},
-  {week:61, date:"8 MARZO", away:"Gradisca", awayScore:0, home:"giordi", homeScore:0, id:"2/8"},
-  {week:61, date:"8 MARZO", away:"VaSulMus", awayScore:0, home:"Coca", homeScore:0, id:"3/7"},
-  {week:61, date:"8 MARZO", away:"Miami", awayScore:0, home:"rualis", homeScore:0, id:"4/6"},
-  {week:61, date:"8 MARZO", away:"Golden State", awayScore:0, home:"Detroit", homeScore:0, id:"9/14"},
-  {week:61, date:"8 MARZO", away:"Wisp", awayScore:0, home:"Monty", homeScore:0, id:"10/13"},
-  {week:61, date:"8 MARZO", away:"Portland", awayScore:0, home:"Paerfetto", homeScore:0, id:"11/12"},
-
-  // GIORNATA 62 - 9 MARZO
-  {week:62, date:"9 MARZO", away:"Paerfetto", awayScore:0, home:"Semsonite", homeScore:0, id:"12/1"},
-  {week:62, date:"9 MARZO", away:"Golden State", awayScore:0, home:"Gradisca", homeScore:0, id:"9/2"},
-  {week:62, date:"9 MARZO", away:"giordi", awayScore:0, home:"VaSulMus", homeScore:0, id:"8/3"},
-  {week:62, date:"9 MARZO", away:"Coca", awayScore:0, home:"Miami", homeScore:0, id:"7/4"},
-  {week:62, date:"9 MARZO", away:"rualis", awayScore:0, home:"Ufficio", homeScore:0, id:"6/5"},
-  {week:62, date:"9 MARZO", away:"Detroit", awayScore:0, home:"Wisp", homeScore:0, id:"14/10"},
-  {week:62, date:"9 MARZO", away:"Monty", awayScore:0, home:"Portland", homeScore:0, id:"13/11"},
-
-  // GIORNATA 63 - 11 MARZO
-  {week:63, date:"11 MARZO", away:"Semsonite", awayScore:0, home:"rualis", homeScore:0, id:"1/6"},
-  {week:63, date:"11 MARZO", away:"Gradisca", awayScore:0, home:"Wisp", homeScore:0, id:"2/10"},
-  {week:63, date:"11 MARZO", away:"VaSulMus", awayScore:0, home:"Golden State", homeScore:0, id:"3/9"},
-  {week:63, date:"11 MARZO", away:"Miami", awayScore:0, home:"giordi", homeScore:0, id:"4/8"},
-  {week:63, date:"11 MARZO", away:"Ufficio", awayScore:0, home:"Coca", homeScore:0, id:"5/7"},
-  {week:63, date:"11 MARZO", away:"Portland", awayScore:0, home:"Detroit", homeScore:0, id:"11/14"},
-  {week:63, date:"11 MARZO", away:"Paerfetto", awayScore:0, home:"Monty", homeScore:0, id:"12/13"},
-
-  // GIORNATA 64 - 13 MARZO
-  {week:64, date:"13 MARZO", away:"Monty", awayScore:0, home:"Semsonite", homeScore:0, id:"13/1"},
-  {week:64, date:"13 MARZO", away:"Portland", awayScore:0, home:"Gradisca", homeScore:0, id:"11/2"},
-  {week:64, date:"13 MARZO", away:"Wisp", awayScore:0, home:"VaSulMus", homeScore:0, id:"10/3"},
-  {week:64, date:"13 MARZO", away:"Golden State", awayScore:0, home:"Miami", homeScore:0, id:"9/4"},
-  {week:64, date:"13 MARZO", away:"giordi", awayScore:0, home:"Ufficio", homeScore:0, id:"8/5"},
-  {week:64, date:"13 MARZO", away:"rualis", awayScore:0, home:"Coca", homeScore:0, id:"6/7"},
-  {week:64, date:"13 MARZO", away:"Detroit", awayScore:0, home:"Paerfetto", homeScore:0, id:"14/12"},
-
-  // GIORNATA 65 - 15 MARZO
-  {week:65, date:"15 MARZO", away:"Semsonite", awayScore:0, home:"Coca", homeScore:0, id:"1/7"},
-  {week:65, date:"15 MARZO", away:"Gradisca", awayScore:0, home:"Paerfetto", homeScore:0, id:"2/12"},
-  {week:65, date:"15 MARZO", away:"VaSulMus", awayScore:0, home:"Portland", homeScore:0, id:"3/11"},
-  {week:65, date:"15 MARZO", away:"Miami", awayScore:0, home:"Wisp", homeScore:0, id:"4/10"},
-  {week:65, date:"15 MARZO", away:"Ufficio", awayScore:0, home:"Golden State", homeScore:0, id:"5/9"},
-  {week:65, date:"15 MARZO", away:"rualis", awayScore:0, home:"giordi", homeScore:0, id:"6/8"},
-  {week:65, date:"15 MARZO", away:"Monty", awayScore:0, home:"Detroit", homeScore:0, id:"13/14"},
-
-  // GIORNATA 66 - 17 MARZO
-  {week:66, date:"17 MARZO", away:"Detroit", awayScore:0, home:"Semsonite", homeScore:0, id:"14/1"},
-  {week:66, date:"17 MARZO", away:"Monty", awayScore:0, home:"Gradisca", homeScore:0, id:"13/2"},
-  {week:66, date:"17 MARZO", away:"Paerfetto", awayScore:0, home:"VaSulMus", homeScore:0, id:"12/3"},
-  {week:66, date:"17 MARZO", away:"Portland", awayScore:0, home:"Miami", homeScore:0, id:"11/4"},
-  {week:66, date:"17 MARZO", away:"Wisp", awayScore:0, home:"Ufficio", homeScore:0, id:"10/5"},
-  {week:66, date:"17 MARZO", away:"Golden State", awayScore:0, home:"rualis", homeScore:0, id:"9/6"},
-  {week:66, date:"17 MARZO", away:"giordi", awayScore:0, home:"Coca", homeScore:0, id:"8/7"},
-*/
-
+  {week:9, date:"9 NOVEMBRE", away:"Portland", awayScore:126.7, home:"Paerfetto", homeScore:74.7, id:"11/12"}
 ];
 
 
 /* PROSSIME PARTITE */
 
 const upcoming = [
+  // GIORNATA 10 - 11 NOVEMBRE
+  {week:10, date:"11 NOVEMBRE", away:"Paerfetto", home:"Semsonite", id:"12/1"},
+  {week:10, date:"11 NOVEMBRE", away:"Golden State", home:"Gradisca", id:"9/2"},
+  {week:10, date:"11 NOVEMBRE", away:"giordi", home:"VaSulMus", id:"8/3"},
+  {week:10, date:"11 NOVEMBRE", away:"Coca", home:"Miami", id:"7/4"},
+  {week:10, date:"11 NOVEMBRE", away:"rualis", home:"Ufficio", id:"6/5"},
+  {week:10, date:"11 NOVEMBRE", away:"Detroit", home:"Wisp", id:"14/10"},
+  {week:10, date:"11 NOVEMBRE", away:"Monty", home:"Portland", id:"13/11"},
 
-// GIORNATA 10 - 11 NOVEMBRE
-{week:10, date:"11 NOVEMBRE", away:"Paerfetto", home:"Semsonite", id:"12/1"},
-{week:10, date:"11 NOVEMBRE", away:"Golden State", home:"Gradisca", id:"9/2"},
-{week:10, date:"11 NOVEMBRE", away:"giordi", home:"VaSulMus", id:"8/3"},
-{week:10, date:"11 NOVEMBRE", away:"Coca", home:"Miami", id:"7/4"},
-{week:10, date:"11 NOVEMBRE", away:"rualis", home:"Ufficio", id:"6/5"},
-{week:10, date:"11 NOVEMBRE", away:"Detroit", home:"Wisp", id:"14/10"},
-{week:10, date:"11 NOVEMBRE", away:"Monty", home:"Portland", id:"13/11"},
+  // GIORNATA 11 - 14 NOVEMBRE
+  {week:11, date:"14 NOVEMBRE", away:"Semsonite", home:"rualis", id:"1/6"},
+  {week:11, date:"14 NOVEMBRE", away:"Gradisca", home:"Wisp", id:"2/10"},
+  {week:11, date:"14 NOVEMBRE", away:"VaSulMus", home:"Golden State", id:"3/9"},
+  {week:11, date:"14 NOVEMBRE", away:"Miami", home:"giordi", id:"4/8"},
+  {week:11, date:"14 NOVEMBRE", away:"Ufficio", home:"Coca", id:"5/7"},
+  {week:11, date:"14 NOVEMBRE", away:"Portland", home:"Detroit", id:"11/14"},
+  {week:11, date:"14 NOVEMBRE", away:"Paerfetto", home:"Monty", id:"12/13"},
 
-  /*
-// GIORNATA 11 - 14 NOVEMBRE
-{week:11, date:"14 NOVEMBRE", away:"Semsonite", home:"rualis", id:"1/6"},
-{week:11, date:"14 NOVEMBRE", away:"Gradisca", home:"Wisp", id:"2/10"},
-{week:11, date:"14 NOVEMBRE", away:"VaSulMus", home:"Golden State", id:"3/9"},
-{week:11, date:"14 NOVEMBRE", away:"Miami", home:"giordi", id:"4/8"},
-{week:11, date:"14 NOVEMBRE", away:"Ufficio", home:"Coca", id:"5/7"},
-{week:11, date:"14 NOVEMBRE", away:"Portland", home:"Detroit", id:"11/14"},
-{week:11, date:"14 NOVEMBRE", away:"Paerfetto", home:"Monty", id:"12/13"},
-
-// GIORNATA 12 - 16 NOVEMBRE
-{week:12, date:"16 NOVEMBRE", away:"Monty", home:"Semsonite", id:"13/1"},
-{week:12, date:"16 NOVEMBRE", away:"Portland", home:"Gradisca", id:"11/2"},
-{week:12, date:"16 NOVEMBRE", away:"Wisp", home:"VaSulMus", id:"10/3"},
-{week:12, date:"16 NOVEMBRE", away:"Golden State", home:"Miami", id:"9/4"},
-{week:12, date:"16 NOVEMBRE", away:"giordi", home:"Ufficio", id:"8/5"},
-{week:12, date:"16 NOVEMBRE", away:"rualis", home:"Coca", id:"6/7"},
-{week:12, date:"16 NOVEMBRE", away:"Detroit", home:"Paerfetto", id:"14/12"},
-
-// GIORNATA 13 - 18 NOVEMBRE
-{week:13, date:"18 NOVEMBRE", away:"Semsonite", home:"Coca", id:"1/7"},
-{week:13, date:"18 NOVEMBRE", away:"Gradisca", home:"Paerfetto", id:"2/12"},
-{week:13, date:"18 NOVEMBRE", away:"VaSulMus", home:"Portland", id:"3/11"},
-{week:13, date:"18 NOVEMBRE", away:"Miami", home:"Wisp", id:"4/10"},
-{week:13, date:"18 NOVEMBRE", away:"Ufficio", home:"Golden State", id:"5/9"},
-{week:13, date:"18 NOVEMBRE", away:"rualis", home:"giordi", id:"6/8"},
-{week:13, date:"18 NOVEMBRE", away:"Monty", home:"Detroit", id:"13/14"},
-
-// GIORNATA 14 - 20 NOVEMBRE
-{week:14, date:"20 NOVEMBRE", away:"Detroit", home:"Semsonite", id:"14/1"},
-{week:14, date:"20 NOVEMBRE", away:"Monty", home:"Gradisca", id:"13/2"},
-{week:14, date:"20 NOVEMBRE", away:"Paerfetto", home:"VaSulMus", id:"12/3"},
-{week:14, date:"20 NOVEMBRE", away:"Portland", home:"Miami", id:"11/4"},
-{week:14, date:"20 NOVEMBRE", away:"Wisp", home:"Ufficio", id:"10/5"},
-{week:14, date:"20 NOVEMBRE", away:"Golden State", home:"rualis", id:"9/6"},
-{week:14, date:"20 NOVEMBRE", away:"giordi", home:"Coca", id:"8/7"},
-
-// GIORNATA 15 - 22 NOVEMBRE
-{week:15, date:"22 NOVEMBRE", away:"Semsonite", home:"giordi", id:"1/8"},
-{week:15, date:"22 NOVEMBRE", away:"Gradisca", home:"Detroit", id:"2/14"},
-{week:15, date:"22 NOVEMBRE", away:"VaSulMus", home:"Monty", id:"3/13"},
-{week:15, date:"22 NOVEMBRE", away:"Miami", home:"Paerfetto", id:"4/12"},
-{week:15, date:"22 NOVEMBRE", away:"Ufficio", home:"Portland", id:"5/11"},
-{week:15, date:"22 NOVEMBRE", away:"rualis", home:"Wisp", id:"6/10"},
-{week:15, date:"22 NOVEMBRE", away:"Coca", home:"Golden State", id:"7/9"},
-
-// GIORNATA 16 - 24 NOVEMBRE
-{week:16, date:"24 NOVEMBRE", away:"Gradisca", home:"Semsonite", id:"2/1"},
-{week:16, date:"24 NOVEMBRE", away:"Detroit", home:"VaSulMus", id:"14/3"},
-{week:16, date:"24 NOVEMBRE", away:"Monty", home:"Miami", id:"13/4"},
-{week:16, date:"24 NOVEMBRE", away:"Paerfetto", home:"Ufficio", id:"12/5"},
-{week:16, date:"24 NOVEMBRE", away:"Portland", home:"rualis", id:"11/6"},
-{week:16, date:"24 NOVEMBRE", away:"Wisp", home:"Coca", id:"10/7"},
-{week:16, date:"24 NOVEMBRE", away:"Golden State", home:"giordi", id:"9/8"},
-
-// GIORNATA 17 - 27 NOVEMBRE
-{week:17, date:"27 NOVEMBRE", away:"Semsonite", home:"Golden State", id:"1/9"},
-{week:17, date:"27 NOVEMBRE", away:"VaSulMus", home:"Gradisca", id:"3/2"},
-{week:17, date:"27 NOVEMBRE", away:"Miami", home:"Detroit", id:"4/14"},
-{week:17, date:"27 NOVEMBRE", away:"Ufficio", home:"Monty", id:"5/13"},
-{week:17, date:"27 NOVEMBRE", away:"rualis", home:"Paerfetto", id:"6/12"},
-{week:17, date:"27 NOVEMBRE", away:"Coca", home:"Portland", id:"7/11"},
-{week:17, date:"27 NOVEMBRE", away:"giordi", home:"Wisp", id:"8/10"},
-
-// GIORNATA 18 - 29 NOVEMBRE
-{week:18, date:"29 NOVEMBRE", away:"VaSulMus", home:"Semsonite", id:"3/1"},
-{week:18, date:"29 NOVEMBRE", away:"Miami", home:"Gradisca", id:"4/2"},
-{week:18, date:"29 NOVEMBRE", away:"Detroit", home:"Ufficio", id:"14/5"},
-{week:18, date:"29 NOVEMBRE", away:"Monty", home:"rualis", id:"13/6"},
-{week:18, date:"29 NOVEMBRE", away:"Paerfetto", home:"Coca", id:"12/7"},
-{week:18, date:"29 NOVEMBRE", away:"Portland", home:"giordi", id:"11/8"},
-{week:18, date:"29 NOVEMBRE", away:"Wisp", home:"Golden State", id:"10/9"},
-
-// GIORNATA 19 - 30 NOVEMBRE
-{week:19, date:"30 NOVEMBRE", away:"Semsonite", home:"Wisp", id:"1/10"},
-{week:19, date:"30 NOVEMBRE", away:"Gradisca", home:"Ufficio", id:"2/5"},
-{week:19, date:"30 NOVEMBRE", away:"VaSulMus", home:"Miami", id:"3/4"},
-{week:19, date:"30 NOVEMBRE", away:"rualis", home:"Detroit", id:"6/14"},
-{week:19, date:"30 NOVEMBRE", away:"Coca", home:"Monty", id:"7/13"},
-{week:19, date:"30 NOVEMBRE", away:"giordi", home:"Paerfetto", id:"8/12"},
-{week:19, date:"30 NOVEMBRE", away:"Golden State", home:"Portland", id:"9/11"},
-
-// GIORNATA 20 - 2 DICEMBRE
-{week:20, date:"2 DICEMBRE", away:"Miami", home:"Semsonite", id:"4/1"},
-{week:20, date:"2 DICEMBRE", away:"rualis", home:"Gradisca", id:"6/2"},
-{week:20, date:"2 DICEMBRE", away:"Ufficio", home:"VaSulMus", id:"5/3"},
-{week:20, date:"2 DICEMBRE", away:"Detroit", home:"Coca", id:"14/7"},
-{week:20, date:"2 DICEMBRE", away:"Monty", home:"giordi", id:"13/8"},
-{week:20, date:"2 DICEMBRE", away:"Paerfetto", home:"Golden State", id:"12/9"},
-{week:20, date:"2 DICEMBRE", away:"Portland", home:"Wisp", id:"11/10"},
-
-// GIORNATA 21 - 12 DICEMBRE
-{week:21, date:"12 DICEMBRE", away:"Semsonite", home:"Portland", id:"1/11"},
-{week:21, date:"12 DICEMBRE", away:"Gradisca", home:"Coca", id:"2/7"},
-{week:21, date:"12 DICEMBRE", away:"VaSulMus", home:"rualis", id:"3/6"},
-{week:21, date:"12 DICEMBRE", away:"Ufficio", home:"Miami", id:"5/4"},
-{week:21, date:"12 DICEMBRE", away:"giordi", home:"Detroit", id:"8/14"},
-{week:21, date:"12 DICEMBRE", away:"Golden State", home:"Monty", id:"9/13"},
-{week:21, date:"12 DICEMBRE", away:"Wisp", home:"Paerfetto", id:"10/12"},
-
-// GIORNATA 22 - 15 DICEMBRE
-{week:22, date:"15 DICEMBRE", away:"Ufficio", home:"Semsonite", id:"5/1"},
-{week:22, date:"15 DICEMBRE", away:"giordi", home:"Gradisca", id:"8/2"},
-{week:22, date:"15 DICEMBRE", away:"Coca", home:"VaSulMus", id:"7/3"},
-{week:22, date:"15 DICEMBRE", away:"rualis", home:"Miami", id:"6/4"},
-{week:22, date:"15 DICEMBRE", away:"Detroit", home:"Golden State", id:"14/9"},
-{week:22, date:"15 DICEMBRE", away:"Monty", home:"Wisp", id:"13/10"},
-{week:22, date:"15 DICEMBRE", away:"Paerfetto", home:"Portland", id:"12/11"},
-
-// GIORNATA 23 - 17 DICEMBRE
-{week:23, date:"17 DICEMBRE", away:"Semsonite", home:"Paerfetto", id:"1/12"},
-{week:23, date:"17 DICEMBRE", away:"Gradisca", home:"Golden State", id:"2/9"},
-{week:23, date:"17 DICEMBRE", away:"VaSulMus", home:"giordi", id:"3/8"},
-{week:23, date:"17 DICEMBRE", away:"Miami", home:"Coca", id:"4/7"},
-{week:23, date:"17 DICEMBRE", away:"Ufficio", home:"rualis", id:"5/6"},
-{week:23, date:"17 DICEMBRE", away:"Wisp", home:"Detroit", id:"10/14"},
-{week:23, date:"17 DICEMBRE", away:"Portland", home:"Monty", id:"11/13"},
-
-// GIORNATA 24 - 19 DICEMBRE
-{week:24, date:"19 DICEMBRE", away:"rualis", home:"Semsonite", id:"6/1"},
-{week:24, date:"19 DICEMBRE", away:"Wisp", home:"Gradisca", id:"10/2"},
-{week:24, date:"19 DICEMBRE", away:"VaSulMus", home:"Golden State", id:"3/9"},
-{week:24, date:"19 DICEMBRE", away:"giordi", home:"Miami", id:"8/4"},
-{week:24, date:"19 DICEMBRE", away:"Coca", home:"Ufficio", id:"7/5"},
-{week:24, date:"19 DICEMBRE", away:"Detroit", home:"Portland", id:"14/11"},
-{week:24, date:"19 DICEMBRE", away:"Monty", home:"Paerfetto", id:"13/12"},
-
-// GIORNATA 25 - 21 DICEMBRE
-{week:25, date:"21 DICEMBRE", away:"Semsonite", home:"Monty", id:"1/13"},
-{week:25, date:"21 DICEMBRE", away:"Gradisca", home:"Portland", id:"2/11"},
-{week:25, date:"21 DICEMBRE", away:"VaSulMus", home:"Wisp", id:"3/10"},
-{week:25, date:"21 DICEMBRE", away:"Miami", home:"Golden State", id:"4/9"},
-{week:25, date:"21 DICEMBRE", away:"Ufficio", home:"giordi", id:"5/8"},
-{week:25, date:"21 DICEMBRE", away:"Coca", home:"rualis", id:"7/6"},
-{week:25, date:"21 DICEMBRE", away:"Paerfetto", home:"Detroit", id:"12/14"},
-
-// GIORNATA 26 - 23 DICEMBRE
-{week:26, date:"23 DICEMBRE", away:"Coca", home:"Semsonite", id:"7/1"},
-{week:26, date:"23 DICEMBRE", away:"Paerfetto", home:"Gradisca", id:"12/2"},
-{week:26, date:"23 DICEMBRE", away:"Portland", home:"VaSulMus", id:"11/3"},
-{week:26, date:"23 DICEMBRE", away:"Wisp", home:"Miami", id:"10/4"},
-{week:26, date:"23 DICEMBRE", away:"Golden State", home:"Ufficio", id:"9/5"},
-{week:26, date:"23 DICEMBRE", away:"giordi", home:"rualis", id:"8/6"},
-{week:26, date:"23 DICEMBRE", away:"Detroit", home:"Monty", id:"14/13"},
-
-// GIORNATA 27 - 25 DICEMBRE
-{week:27, date:"25 DICEMBRE", away:"Detroit", home:"Semsonite", id:"14/1"},
-{week:27, date:"25 DICEMBRE", away:"Monty", home:"Gradisca", id:"13/2"},
-{week:27, date:"25 DICEMBRE", away:"Paerfetto", home:"VaSulMus", id:"12/3"},
-{week:27, date:"25 DICEMBRE", away:"Portland", home:"Miami", id:"11/4"},
-{week:27, date:"25 DICEMBRE", away:"Wisp", home:"Ufficio", id:"10/5"},
-{week:27, date:"25 DICEMBRE", away:"Golden State", home:"rualis", id:"9/6"},
-{week:27, date:"25 DICEMBRE", away:"giordi", home:"Coca", id:"8/7"},
-
-// GIORNATA 28 - 27 DICEMBRE
-{week:28, date:"27 DICEMBRE", away:"giordi", home:"Semsonite", id:"8/1"},
-{week:28, date:"27 DICEMBRE", away:"Detroit", home:"Gradisca", id:"14/2"},
-{week:28, date:"27 DICEMBRE", away:"Monty", home:"VaSulMus", id:"13/3"},
-{week:28, date:"27 DICEMBRE", away:"Paerfetto", home:"Miami", id:"12/4"},
-{week:28, date:"27 DICEMBRE", away:"Portland", home:"Ufficio", id:"11/5"},
-{week:28, date:"27 DICEMBRE", away:"Wisp", home:"rualis", id:"10/6"},
-{week:28, date:"27 DICEMBRE", away:"Golden State", home:"Coca", id:"9/7"},
-
-// GIORNATA 29 - 29 DICEMBRE
-{week:29, date:"29 DICEMBRE", away:"Semsonite", home:"Gradisca", id:"1/2"},
-{week:29, date:"29 DICEMBRE", away:"VaSulMus", home:"Detroit", id:"3/14"},
-{week:29, date:"29 DICEMBRE", away:"Miami", home:"Monty", id:"4/13"},
-{week:29, date:"29 DICEMBRE", away:"Ufficio", home:"Paerfetto", id:"5/12"},
-{week:29, date:"29 DICEMBRE", away:"rualis", home:"Portland", id:"6/11"},
-{week:29, date:"29 DICEMBRE", away:"Coca", home:"Wisp", id:"7/10"},
-{week:29, date:"29 DICEMBRE", away:"giordi", home:"Golden State", id:"8/9"},
-
-// GIORNATA 30 - 1 GENNAIO
-{week:30, date:"1 GENNAIO", away:"Golden State", home:"Semsonite", id:"9/1"},
-{week:30, date:"1 GENNAIO", away:"Gradisca", home:"VaSulMus", id:"2/3"},
-{week:30, date:"1 GENNAIO", away:"Detroit", home:"Miami", id:"14/4"},
-{week:30, date:"1 GENNAIO", away:"Monty", home:"Ufficio", id:"13/5"},
-{week:30, date:"1 GENNAIO", away:"Paerfetto", home:"rualis", id:"12/6"},
-{week:30, date:"1 GENNAIO", away:"Portland", home:"Coca", id:"11/7"},
-{week:30, date:"1 GENNAIO", away:"Wisp", home:"giordi", id:"10/8"},
-
-// GIORNATA 31 - 2 GENNAIO
-{week:31, date:"2 GENNAIO", away:"Semsonite", home:"VaSulMus", id:"1/3"},
-{week:31, date:"2 GENNAIO", away:"Gradisca", home:"Miami", id:"2/4"},
-{week:31, date:"2 GENNAIO", away:"Ufficio", home:"Detroit", id:"5/14"},
-{week:31, date:"2 GENNAIO", away:"rualis", home:"Monty", id:"6/13"},
-{week:31, date:"2 GENNAIO", away:"Coca", home:"Paerfetto", id:"7/12"},
-{week:31, date:"2 GENNAIO", away:"giordi", home:"Portland", id:"8/11"},
-{week:31, date:"2 GENNAIO", away:"Golden State", home:"Wisp", id:"9/10"},
-
-// GIORNATA 32 - 4 GENNAIO
-{week:32, date:"4 GENNAIO", away:"Wisp", home:"Semsonite", id:"10/1"},
-{week:32, date:"4 GENNAIO", away:"Ufficio", home:"Gradisca", id:"5/2"},
-{week:32, date:"4 GENNAIO", away:"Miami", home:"VaSulMus", id:"4/3"},
-{week:32, date:"4 GENNAIO", away:"Detroit", home:"rualis", id:"14/6"},
-{week:32, date:"4 GENNAIO", away:"Monty", home:"Coca", id:"13/7"},
-{week:32, date:"4 GENNAIO", away:"Paerfetto", home:"giordi", id:"12/8"},
-{week:32, date:"4 GENNAIO", away:"Portland", home:"Golden State", id:"11/9"},
-
-// GIORNATA 33 - 7 GENNAIO
-{week:33, date:"7 GENNAIO", away:"Semsonite", home:"Miami", id:"1/4"},
-{week:33, date:"7 GENNAIO", away:"Gradisca", home:"rualis", id:"2/6"},
-{week:33, date:"7 GENNAIO", away:"VaSulMus", home:"Ufficio", id:"3/5"},
-{week:33, date:"7 GENNAIO", away:"Coca", home:"Detroit", id:"7/14"},
-{week:33, date:"7 GENNAIO", away:"giordi", home:"Monty", id:"8/13"},
-{week:33, date:"7 GENNAIO", away:"Golden State", home:"Paerfetto", id:"9/12"},
-{week:33, date:"7 GENNAIO", away:"Wisp", home:"Portland", id:"10/11"},
-
-// GIORNATA 34 - 8 GENNAIO
-{week:34, date:"8 GENNAIO", away:"Portland", home:"Semsonite", id:"11/1"},
-{week:34, date:"8 GENNAIO", away:"Coca", home:"Gradisca", id:"7/2"},
-{week:34, date:"8 GENNAIO", away:"rualis", home:"VaSulMus", id:"6/3"},
-{week:34, date:"8 GENNAIO", away:"Miami", home:"Ufficio", id:"4/5"},
-{week:34, date:"8 GENNAIO", away:"Detroit", home:"giordi", id:"14/8"},
-{week:34, date:"8 GENNAIO", away:"Monty", home:"Golden State", id:"13/9"},
-{week:34, date:"8 GENNAIO", away:"Paerfetto", home:"Wisp", id:"12/10"},
-
-// GIORNATA 35 - 10 GENNAIO
-{week:35, date:"10 GENNAIO", away:"Semsonite", home:"Ufficio", id:"1/5"},
-{week:35, date:"10 GENNAIO", away:"Gradisca", home:"giordi", id:"2/8"},
-{week:35, date:"10 GENNAIO", away:"VaSulMus", home:"Coca", id:"3/7"},
-{week:35, date:"10 GENNAIO", away:"Miami", home:"rualis", id:"4/6"},
-{week:35, date:"10 GENNAIO", away:"Golden State", home:"Detroit", id:"9/14"},
-{week:35, date:"10 GENNAIO", away:"Wisp", home:"Monty", id:"10/13"},
-{week:35, date:"10 GENNAIO", away:"Portland", home:"Paerfetto", id:"11/12"},
-
-// GIORNATA 36 - 12 GENNAIO
-{week:36, date:"12 GENNAIO", away:"Paerfetto", home:"Semsonite", id:"12/1"},
-{week:36, date:"12 GENNAIO", away:"Golden State", home:"Gradisca", id:"9/2"},
-{week:36, date:"12 GENNAIO", away:"giordi", home:"VaSulMus", id:"8/3"},
-{week:36, date:"12 GENNAIO", away:"Coca", home:"Miami", id:"7/4"},
-{week:36, date:"12 GENNAIO", away:"rualis", home:"Ufficio", id:"6/5"},
-{week:36, date:"12 GENNAIO", away:"Detroit", home:"Wisp", id:"14/10"},
-{week:36, date:"12 GENNAIO", away:"Monty", home:"Portland", id:"13/11"},
-
-// GIORNATA 37 - 14 GENNAIO
-{week:37, date:"14 GENNAIO", away:"Semsonite", home:"rualis", id:"1/6"},
-{week:37, date:"14 GENNAIO", away:"Gradisca", home:"Wisp", id:"2/10"},
-{week:37, date:"14 GENNAIO", away:"VaSulMus", home:"Golden State", id:"3/9"},
-{week:37, date:"14 GENNAIO", away:"Miami", home:"giordi", id:"4/8"},
-{week:37, date:"14 GENNAIO", away:"Ufficio", home:"Coca", id:"5/7"},
-{week:37, date:"14 GENNAIO", away:"Portland", home:"Detroit", id:"11/14"},
-{week:37, date:"14 GENNAIO", away:"Paerfetto", home:"Monty", id:"12/13"},
-
-// GIORNATA 38 - 16 GENNAIO
-{week:38, date:"16 GENNAIO", away:"Monty", home:"Semsonite", id:"13/1"},
-{week:38, date:"16 GENNAIO", away:"Portland", home:"Gradisca", id:"11/2"},
-{week:38, date:"16 GENNAIO", away:"Wisp", home:"VaSulMus", id:"10/3"},
-{week:38, date:"16 GENNAIO", away:"Golden State", home:"Miami", id:"9/4"},
-{week:38, date:"16 GENNAIO", away:"giordi", home:"Ufficio", id:"8/5"},
-{week:38, date:"16 GENNAIO", away:"rualis", home:"Coca", id:"6/7"},
-{week:38, date:"16 GENNAIO", away:"Detroit", home:"Paerfetto", id:"14/12"},
-
-// GIORNATA 39 - 18 GENNAIO
-{week:39, date:"18 GENNAIO", away:"Semsonite", home:"Coca", id:"1/7"},
-{week:39, date:"18 GENNAIO", away:"Gradisca", home:"Paerfetto", id:"2/12"},
-{week:39, date:"18 GENNAIO", away:"VaSulMus", home:"Portland", id:"3/11"},
-{week:39, date:"18 GENNAIO", away:"Miami", home:"Wisp", id:"4/10"},
-{week:39, date:"18 GENNAIO", away:"Ufficio", home:"Golden State", id:"5/9"},
-{week:39, date:"18 GENNAIO", away:"rualis", home:"giordi", id:"6/8"},
-{week:39, date:"18 GENNAIO", away:"Monty", home:"Detroit", id:"13/14"},
-
-// GIORNATA 40 - 19 GENNAIO
-{week:40, date:"19 GENNAIO", away:"Detroit", home:"Semsonite", id:"14/1"},
-{week:40, date:"19 GENNAIO", away:"Monty", home:"Gradisca", id:"13/2"},
-{week:40, date:"19 GENNAIO", away:"Paerfetto", home:"VaSulMus", id:"12/3"},
-{week:40, date:"19 GENNAIO", away:"Portland", home:"Miami", id:"11/4"},
-{week:40, date:"19 GENNAIO", away:"Wisp", home:"Ufficio", id:"10/5"},
-{week:40, date:"19 GENNAIO", away:"Golden State", home:"rualis", id:"9/6"},
-{week:40, date:"19 GENNAIO", away:"giordi", home:"Coca", id:"8/7"},
-
-// GIORNATA 41 - 22 GENNAIO
-{week:41, date:"22 GENNAIO", away:"Semsonite", home:"giordi", id:"1/8"},
-{week:41, date:"22 GENNAIO", away:"Gradisca", home:"Detroit", id:"2/14"},
-{week:41, date:"22 GENNAIO", away:"VaSulMus", home:"Monty", id:"3/13"},
-{week:41, date:"22 GENNAIO", away:"Miami", home:"Paerfetto", id:"4/12"},
-{week:41, date:"22 GENNAIO", away:"Ufficio", home:"Portland", id:"5/11"},
-{week:41, date:"22 GENNAIO", away:"rualis", home:"Wisp", id:"6/10"},
-{week:41, date:"22 GENNAIO", away:"Coca", home:"Golden State", id:"7/9"},
-
-// GIORNATA 42 - 23 GENNAIO
-{week:42, date:"23 GENNAIO", away:"Gradisca", home:"Semsonite", id:"2/1"},
-{week:42, date:"23 GENNAIO", away:"Detroit", home:"VaSulMus", id:"14/3"},
-{week:42, date:"23 GENNAIO", away:"Monty", home:"Miami", id:"13/4"},
-{week:42, date:"23 GENNAIO", away:"Paerfetto", home:"Ufficio", id:"12/5"},
-{week:42, date:"23 GENNAIO", away:"Portland", home:"rualis", id:"11/6"},
-{week:42, date:"23 GENNAIO", away:"Wisp", home:"Coca", id:"10/7"},
-{week:42, date:"23 GENNAIO", away:"Golden State", home:"giordi", id:"9/8"},
-
-// GIORNATA 43 - 25 GENNAIO
-{week:43, date:"25 GENNAIO", away:"Semsonite", home:"Golden State", id:"1/9"},
-{week:43, date:"25 GENNAIO", away:"VaSulMus", home:"Gradisca", id:"3/2"},
-{week:43, date:"25 GENNAIO", away:"Miami", home:"Detroit", id:"4/14"},
-{week:43, date:"25 GENNAIO", away:"Ufficio", home:"Monty", id:"5/13"},
-{week:43, date:"25 GENNAIO", away:"rualis", home:"Paerfetto", id:"6/12"},
-{week:43, date:"25 GENNAIO", away:"Coca", home:"Portland", id:"7/11"},
-{week:43, date:"25 GENNAIO", away:"giordi", home:"Wisp", id:"8/10"},
-
-// GIORNATA 44 - 27 GENNAIO
-{week:44, date:"27 GENNAIO", away:"VaSulMus", home:"Semsonite", id:"3/1"},
-{week:44, date:"27 GENNAIO", away:"Miami", home:"Gradisca", id:"4/2"},
-{week:44, date:"27 GENNAIO", away:"Detroit", home:"Ufficio", id:"14/5"},
-{week:44, date:"27 GENNAIO", away:"Monty", home:"rualis", id:"13/6"},
-{week:44, date:"27 GENNAIO", away:"Paerfetto", home:"Coca", id:"12/7"},
-{week:44, date:"27 GENNAIO", away:"Portland", home:"giordi", id:"11/8"},
-{week:44, date:"27 GENNAIO", away:"Wisp", home:"Golden State", id:"10/9"},
-
-// GIORNATA 45 - 29 GENNAIO
-{week:45, date:"29 GENNAIO", away:"Semsonite", home:"Wisp", id:"1/10"},
-{week:45, date:"29 GENNAIO", away:"Gradisca", home:"Ufficio", id:"2/5"},
-{week:45, date:"29 GENNAIO", away:"VaSulMus", home:"Miami", id:"3/4"},
-{week:45, date:"29 GENNAIO", away:"rualis", home:"Detroit", id:"6/14"},
-{week:45, date:"29 GENNAIO", away:"Coca", home:"Monty", id:"7/13"},
-{week:45, date:"29 GENNAIO", away:"giordi", home:"Paerfetto", id:"8/12"},
-{week:45, date:"29 GENNAIO", away:"Golden State", home:"Portland", id:"9/11"},
-
-// GIORNATA 46 - 31 GENNAIO
-{week:46, date:"31 GENNAIO", away:"Miami", home:"Semsonite", id:"4/1"},
-{week:46, date:"31 GENNAIO", away:"rualis", home:"Gradisca", id:"6/2"},
-{week:46, date:"31 GENNAIO", away:"Ufficio", home:"VaSulMus", id:"5/3"},
-{week:46, date:"31 GENNAIO", away:"Detroit", home:"Coca", id:"14/7"},
-{week:46, date:"31 GENNAIO", away:"Monty", home:"giordi", id:"13/8"},
-{week:46, date:"31 GENNAIO", away:"Paerfetto", home:"Golden State", id:"12/9"},
-{week:46, date:"31 GENNAIO", away:"Portland", home:"Wisp", id:"11/10"},
-
-// GIORNATA 47 - 2 FEBBRAIO
-{week:47, date:"2 FEBBRAIO", away:"Semsonite", home:"Portland", id:"1/11"},
-{week:47, date:"2 FEBBRAIO", away:"Gradisca", home:"Coca", id:"2/7"},
-{week:47, date:"2 FEBBRAIO", away:"VaSulMus", home:"rualis", id:"3/6"},
-{week:47, date:"2 FEBBRAIO", away:"Ufficio", home:"Miami", id:"5/4"},
-{week:47, date:"2 FEBBRAIO", away:"giordi", home:"Detroit", id:"8/14"},
-{week:47, date:"2 FEBBRAIO", away:"Golden State", home:"Monty", id:"9/13"},
-{week:47, date:"2 FEBBRAIO", away:"Wisp", home:"Paerfetto", id:"10/12"},
-
-// GIORNATA 48 - 4 FEBBRAIO
-{week:48, date:"4 FEBBRAIO", away:"Ufficio", home:"Semsonite", id:"5/1"},
-{week:48, date:"4 FEBBRAIO", away:"giordi", home:"Gradisca", id:"8/2"},
-{week:48, date:"4 FEBBRAIO", away:"Coca", home:"VaSulMus", id:"7/3"},
-{week:48, date:"4 FEBBRAIO", away:"rualis", home:"Miami", id:"6/4"},
-{week:48, date:"4 FEBBRAIO", away:"Detroit", home:"Golden State", id:"14/9"},
-{week:48, date:"4 FEBBRAIO", away:"Monty", home:"Wisp", id:"13/10"},
-{week:48, date:"4 FEBBRAIO", away:"Paerfetto", home:"Portland", id:"12/11"},
-
-// GIORNATA 49 - 6 FEBBRAIO
-{week:49, date:"6 FEBBRAIO", away:"Semsonite", home:"Paerfetto", id:"1/12"},
-{week:49, date:"6 FEBBRAIO", away:"Gradisca", home:"Golden State", id:"2/9"},
-{week:49, date:"6 FEBBRAIO", away:"VaSulMus", home:"giordi", id:"3/8"},
-{week:49, date:"6 FEBBRAIO", away:"Miami", home:"Coca", id:"4/7"},
-{week:49, date:"6 FEBBRAIO", away:"Ufficio", home:"rualis", id:"5/6"},
-{week:49, date:"6 FEBBRAIO", away:"Wisp", home:"Detroit", id:"10/14"},
-{week:49, date:"6 FEBBRAIO", away:"Portland", home:"Monty", id:"11/13"},
-
-// GIORNATA 50 - 7 FEBBRAIO
-{week:50, date:"7 FEBBRAIO", away:"rualis", home:"Semsonite", id:"6/1"},
-{week:50, date:"7 FEBBRAIO", away:"Wisp", home:"Gradisca", id:"10/2"},
-{week:50, date:"7 FEBBRAIO", away:"Golden State", home:"VaSulMus", id:"9/3"},
-{week:50, date:"7 FEBBRAIO", away:"giordi", home:"Miami", id:"8/4"},
-{week:50, date:"7 FEBBRAIO", away:"Coca", home:"Ufficio", id:"7/5"},
-{week:50, date:"7 FEBBRAIO", away:"Detroit", home:"Portland", id:"14/11"},
-{week:50, date:"7 FEBBRAIO", away:"Monty", home:"Paerfetto", id:"13/12"},
-
-// GIORNATA 51 - 9 FEBBRAIO
-{week:51, date:"9 FEBBRAIO", away:"Semsonite", home:"Monty", id:"1/13"},
-{week:51, date:"9 FEBBRAIO", away:"Gradisca", home:"Portland", id:"2/11"},
-{week:51, date:"9 FEBBRAIO", away:"VaSulMus", home:"Wisp", id:"3/10"},
-{week:51, date:"9 FEBBRAIO", away:"Miami", home:"Golden State", id:"4/9"},
-{week:51, date:"9 FEBBRAIO", away:"Ufficio", home:"giordi", id:"5/8"},
-{week:51, date:"9 FEBBRAIO", away:"Coca", home:"rualis", id:"7/6"},
-{week:51, date:"9 FEBBRAIO", away:"Paerfetto", home:"Detroit", id:"12/14"},
-
-// GIORNATA 52 - 11 FEBBRAIO
-{week:52, date:"11 FEBBRAIO", away:"Coca", home:"Semsonite", id:"7/1"},
-{week:52, date:"11 FEBBRAIO", away:"Paerfetto", home:"Gradisca", id:"12/2"},
-{week:52, date:"11 FEBBRAIO", away:"Portland", home:"VaSulMus", id:"11/3"},
-{week:52, date:"11 FEBBRAIO", away:"Wisp", home:"Miami", id:"10/4"},
-{week:52, date:"11 FEBBRAIO", away:"Golden State", home:"Ufficio", id:"9/5"},
-{week:52, date:"11 FEBBRAIO", away:"giordi", home:"rualis", id:"8/6"},
-{week:52, date:"11 FEBBRAIO", away:"Detroit", home:"Monty", id:"14/13"},
-
-// GIORNATA 53 - 13 FEBBRAIO
-{week:53, date:"13 FEBBRAIO", away:"Semsonite", home:"Detroit", id:"1/14"},
-{week:53, date:"13 FEBBRAIO", away:"Gradisca", home:"Monty", id:"2/13"},
-{week:53, date:"13 FEBBRAIO", away:"VaSulMus", home:"Paerfetto", id:"3/12"},
-{week:53, date:"13 FEBBRAIO", away:"Miami", home:"Portland", id:"4/11"},
-{week:53, date:"13 FEBBRAIO", away:"Ufficio", home:"Wisp", id:"5/10"},
-{week:53, date:"13 FEBBRAIO", away:"rualis", home:"Golden State", id:"6/9"},
-{week:53, date:"13 FEBBRAIO", away:"Coca", home:"giordi", id:"7/8"},
-
-// GIORNATA 54 - 15 FEBBRAIO
-{week:54, date:"15 FEBBRAIO", away:"giordi", home:"Semsonite", id:"8/1"},
-{week:54, date:"15 FEBBRAIO", away:"Detroit", home:"Gradisca", id:"14/2"},
-{week:54, date:"15 FEBBRAIO", away:"Monty", home:"VaSulMus", id:"13/3"},
-{week:54, date:"15 FEBBRAIO", away:"Paerfetto", home:"Miami", id:"12/4"},
-{week:54, date:"15 FEBBRAIO", away:"Portland", home:"Ufficio", id:"11/5"},
-{week:54, date:"15 FEBBRAIO", away:"Wisp", home:"rualis", id:"10/6"},
-{week:54, date:"15 FEBBRAIO", away:"Golden State", home:"Coca", id:"9/7"},
-
-// GIORNATA 55 - 17 FEBBRAIO
-{week:55, date:"17 FEBBRAIO", away:"Semsonite", home:"Gradisca", id:"1/2"},
-{week:55, date:"17 FEBBRAIO", away:"VaSulMus", home:"Detroit", id:"3/14"},
-{week:55, date:"17 FEBBRAIO", away:"Miami", home:"Monty", id:"4/13"},
-{week:55, date:"17 FEBBRAIO", away:"Ufficio", home:"Paerfetto", id:"5/12"},
-{week:55, date:"17 FEBBRAIO", away:"rualis", home:"Portland", id:"6/11"},
-{week:55, date:"17 FEBBRAIO", away:"Coca", home:"Wisp", id:"7/10"},
-{week:55, date:"17 FEBBRAIO", away:"giordi", home:"Golden State", id:"8/9"},
-
-// GIORNATA 56 - 25 FEBBRAIO
-{week:56, date:"25 FEBBRAIO", away:"Golden State", home:"Semsonite", id:"9/1"},
-{week:56, date:"25 FEBBRAIO", away:"Gradisca", home:"VaSulMus", id:"2/3"},
-{week:56, date:"25 FEBBRAIO", away:"Detroit", home:"Miami", id:"14/4"},
-{week:56, date:"25 FEBBRAIO", away:"Monty", home:"Ufficio", id:"13/5"},
-{week:56, date:"25 FEBBRAIO", away:"Paerfetto", home:"rualis", id:"12/6"},
-{week:56, date:"25 FEBBRAIO", away:"Portland", home:"Coca", id:"11/7"},
-{week:56, date:"25 FEBBRAIO", away:"Wisp", home:"giordi", id:"10/8"},
-
-// GIORNATA 57 - 27 FEBBRAIO
-{week:57, date:"27 FEBBRAIO", away:"Semsonite", home:"VaSulMus", id:"1/3"},
-{week:57, date:"27 FEBBRAIO", away:"Gradisca", home:"Miami", id:"2/4"},
-{week:57, date:"27 FEBBRAIO", away:"Ufficio", home:"Detroit", id:"5/14"},
-{week:57, date:"27 FEBBRAIO", away:"rualis", home:"Monty", id:"6/13"},
-{week:57, date:"27 FEBBRAIO", away:"Coca", home:"Paerfetto", id:"7/12"},
-{week:57, date:"27 FEBBRAIO", away:"giordi", home:"Portland", id:"8/11"},
-{week:57, date:"27 FEBBRAIO", away:"Golden State", home:"Wisp", id:"9/10"},
-
-// GIORNATA 58 - 1 MARZO
-{week:58, date:"1 MARZO", away:"Wisp", home:"Semsonite", id:"10/1"},
-{week:58, date:"1 MARZO", away:"Ufficio", home:"Gradisca", id:"5/2"},
-{week:58, date:"1 MARZO", away:"Miami", home:"VaSulMus", id:"4/3"},
-{week:58, date:"1 MARZO", away:"Detroit", home:"rualis", id:"14/6"},
-{week:58, date:"1 MARZO", away:"Monty", home:"Coca", id:"13/7"},
-{week:58, date:"1 MARZO", away:"Paerfetto", home:"giordi", id:"12/8"},
-{week:58, date:"1 MARZO", away:"Portland", home:"Golden State", id:"11/9"},
-
-// GIORNATA 59 - 2 MARZO
-{week:59, date:"2 MARZO", away:"Semsonite", home:"Miami", id:"1/4"},
-{week:59, date:"2 MARZO", away:"Gradisca", home:"rualis", id:"2/6"},
-{week:59, date:"2 MARZO", away:"VaSulMus", home:"Ufficio", id:"3/5"},
-{week:59, date:"2 MARZO", away:"Coca", home:"Detroit", id:"7/14"},
-{week:59, date:"2 MARZO", away:"giordi", home:"Monty", id:"8/13"},
-{week:59, date:"2 MARZO", away:"Golden State", home:"Paerfetto", id:"9/12"},
-{week:59, date:"2 MARZO", away:"Wisp", home:"Portland", id:"10/11"},
-
-// GIORNATA 60 - 4 MARZO
-{week:60, date:"4 MARZO", away:"Portland", home:"Semsonite", id:"11/1"},
-{week:60, date:"4 MARZO", away:"Coca", home:"Gradisca", id:"7/2"},
-{week:60, date:"4 MARZO", away:"rualis", home:"VaSulMus", id:"6/3"},
-{week:60, date:"4 MARZO", away:"Miami", home:"Ufficio", id:"4/5"},
-{week:60, date:"4 MARZO", away:"Detroit", home:"giordi", id:"14/8"},
-{week:60, date:"4 MARZO", away:"Monty", home:"Golden State", id:"13/9"},
-{week:60, date:"4 MARZO", away:"Paerfetto", home:"Wisp", id:"12/10"},
-
-// GIORNATA 61 - 8 MARZO
-{week:61, date:"8 MARZO", away:"Semsonite", home:"Ufficio", id:"1/5"},
-{week:61, date:"8 MARZO", away:"Gradisca", home:"giordi", id:"2/8"},
-{week:61, date:"8 MARZO", away:"VaSulMus", home:"Coca", id:"3/7"},
-{week:61, date:"8 MARZO", away:"Miami", home:"rualis", id:"4/6"},
-{week:61, date:"8 MARZO", away:"Golden State", home:"Detroit", id:"9/14"},
-{week:61, date:"8 MARZO", away:"Wisp", home:"Monty", id:"10/13"},
-{week:61, date:"8 MARZO", away:"Portland", home:"Paerfetto", id:"11/12"},
-
-// GIORNATA 62 - 9 MARZO
-{week:62, date:"9 MARZO", away:"Paerfetto", home:"Semsonite", id:"12/1"},
-{week:62, date:"9 MARZO", away:"Golden State", home:"Gradisca", id:"9/2"},
-{week:62, date:"9 MARZO", away:"giordi", home:"VaSulMus", id:"8/3"},
-{week:62, date:"9 MARZO", away:"Coca", home:"Miami", id:"7/4"},
-{week:62, date:"9 MARZO", away:"rualis", home:"Ufficio", id:"6/5"},
-{week:62, date:"9 MARZO", away:"Detroit", home:"Wisp", id:"14/10"},
-{week:62, date:"9 MARZO", away:"Monty", home:"Portland", id:"13/11"},
-
-// GIORNATA 63 - 11 MARZO
-{week:63, date:"11 MARZO", away:"Semsonite", home:"rualis", id:"1/6"},
-{week:63, date:"11 MARZO", away:"Gradisca", home:"Wisp", id:"2/10"},
-{week:63, date:"11 MARZO", away:"VaSulMus", home:"Golden State", id:"3/9"},
-{week:63, date:"11 MARZO", away:"Miami", home:"giordi", id:"4/8"},
-{week:63, date:"11 MARZO", away:"Ufficio", home:"Coca", id:"5/7"},
-{week:63, date:"11 MARZO", away:"Portland", home:"Detroit", id:"11/14"},
-{week:63, date:"11 MARZO", away:"Paerfetto", home:"Monty", id:"12/13"},
-
-// GIORNATA 64 - 13 MARZO
-{week:64, date:"13 MARZO", away:"Monty", home:"Semsonite", id:"13/1"},
-{week:64, date:"13 MARZO", away:"Portland", home:"Gradisca", id:"11/2"},
-{week:64, date:"13 MARZO", away:"Wisp", home:"VaSulMus", id:"10/3"},
-{week:64, date:"13 MARZO", away:"Golden State", home:"Miami", id:"9/4"},
-{week:64, date:"13 MARZO", away:"giordi", home:"Ufficio", id:"8/5"},
-{week:64, date:"13 MARZO", away:"rualis", home:"Coca", id:"6/7"},
-{week:64, date:"13 MARZO", away:"Detroit", home:"Paerfetto", id:"14/12"},
-
-// GIORNATA 65 - 15 MARZO
-{week:65, date:"15 MARZO", away:"Semsonite", home:"Coca", id:"1/7"},
-{week:65, date:"15 MARZO", away:"Gradisca", home:"Paerfetto", id:"2/12"},
-{week:65, date:"15 MARZO", away:"VaSulMus", home:"Portland", id:"3/11"},
-{week:65, date:"15 MARZO", away:"Miami", home:"Wisp", id:"4/10"},
-{week:65, date:"15 MARZO", away:"Ufficio", home:"Golden State", id:"5/9"},
-{week:65, date:"15 MARZO", away:"rualis", home:"giordi", id:"6/8"},
-{week:65, date:"15 MARZO", away:"Monty", home:"Detroit", id:"13/14"},
-
-// GIORNATA 66 - 17 MARZO
-{week:66, date:"17 MARZO", away:"Detroit", home:"Semsonite", id:"14/1"},
-{week:66, date:"17 MARZO", away:"Monty", home:"Gradisca", id:"13/2"},
-{week:66, date:"17 MARZO", away:"Paerfetto", home:"VaSulMus", id:"12/3"},
-{week:66, date:"17 MARZO", away:"Portland", home:"Miami", id:"11/4"},
-{week:66, date:"17 MARZO", away:"Wisp", home:"Ufficio", id:"10/5"},
-{week:66, date:"17 MARZO", away:"Golden State", home:"rualis", id:"9/6"},
-{week:66, date:"17 MARZO", away:"giordi", home:"Coca", id:"8/7"}, */
-
+  // GIORNATA 12 - 16 NOVEMBRE
+  {week:12, date:"16 NOVEMBRE", away:"Monty", home:"Semsonite", id:"13/1"},
+  {week:12, date:"16 NOVEMBRE", away:"Portland", home:"Gradisca", id:"11/2"},
+  {week:12, date:"16 NOVEMBRE", away:"Wisp", home:"VaSulMus", id:"10/3"},
+  {week:12, date:"16 NOVEMBRE", away:"Golden State", home:"Miami", id:"9/4"},
+  {week:12, date:"16 NOVEMBRE", away:"giordi", home:"Ufficio", id:"8/5"},
+  {week:12, date:"16 NOVEMBRE", away:"rualis", home:"Coca", id:"6/7"},
+  {week:12, date:"16 NOVEMBRE", away:"Detroit", home:"Paerfetto", id:"14/12"}
 ];
 
 
@@ -1423,100 +469,6 @@ const knownTeams = [
 ];
 
 const fmt = n => Number(n).toFixed(1);
-
-const esc = s => String(s).replace(/[&<>"']/g, c => ({
-  "&":"&amp;",
-  "<":"&lt;",
-  ">":"&gt;",
-  '"':"&quot;",
-  "'":"&#39;"
-}[c]));
-
-
-/* CALCOLO CLASSIFICA */
-
-function buildStandings() {
-
-  const map = {};
-  const byTeam = {};
-
-  knownTeams.forEach(name => {
-    map[name] = {
-      name,
-      w:0,
-      l:0,
-      pf:0,
-      pa:0,
-      streak:"—",
-      diff:0
-    };
-  });
-
-  results.forEach(g => {
-
-    [
-      [g.away,g.awayScore,g.home,g.homeScore],
-      [g.home,g.homeScore,g.away,g.awayScore]
-    ].forEach(([name,score,opp,oppScore]) => {
-
-      if (!map[name]) {
-        map[name] = {
-          name,w:0,l:0,pf:0,pa:0,streak:"—",diff:0
-        };
-      }
-
-      map[name].pf += score;
-      map[name].pa += oppScore;
-
-      const won = score > oppScore;
-
-      if (won) map[name].w++;
-      else if (score < oppScore) map[name].l++;
-
-      if (!byTeam[name]) byTeam[name] = [];
-
-      byTeam[name].push(
-        won ? "W" : score === oppScore ? "T" : "L"
-      );
-
-    });
-
-  });
-
-  Object.values(map).forEach(t => {
-
-    const games = byTeam[t.name] || [];
-
-    if (games.length) {
-
-      const last = games[games.length-1];
-      let count = 0;
-
-      for (
-        let i=games.length-1;
-        i>=0 && games[i]===last;
-        i--
-      ) {
-        count++;
-      }
-
-      t.streak = last + count;
-    }
-
-    t.diff = t.pf - t.pa;
-
-  });
-
-  return Object.values(map).sort((a,b) =>
-    b.w-a.w ||
-    a.l-b.l ||
-    b.pf-a.pf ||
-    b.diff-a.diff ||
-    a.name.localeCompare(b.name)
-  );
-
-}
-
 
 function winner(g) {
   return g.awayScore > g.homeScore ? g.away : g.home;
@@ -1531,7 +483,17 @@ function pageHeader(title,page) {
 }
 
 
+/* COMMENTI GAME 9 */
 
+const game9Comments = [
+  {title:"Ufficio", text:"Supera Semsonite per 111.8 a 104.9 e conquista una vittoria importante."},
+  {title:"rualis", text:"Batte Miami per 126.5 a 109.5 e continua il suo buon momento."},
+  {title:"VaSulMus", text:"Firma il miglior punteggio della giornata: 149.4 punti contro Coca."},
+  {title:"giordi", text:"Supera Gradisca per 131.3 a 122.1."},
+  {title:"Portland", text:"Vince contro Paerfetto per 126.7 a 74.7."},
+  {title:"Monty", text:"Realizza 109.3 punti e supera Wisp, fermo a 92.4."},
+  {title:"Detroit", text:"Batte Golden State per 136.0 a 119.3."}
+];
 
 
 /* PAGINA 201 - RISULTATI */
@@ -1545,8 +507,6 @@ function renderResults() {
       const awayWin = g.awayScore > g.homeScore;
       const homeWin = g.homeScore > g.awayScore;
 
-
-
       return `<tr>
         <td>G${g.week}</td>
         <td class="${awayWin?'winner':'loser'}">${esc(g.away)}</td>
@@ -1557,44 +517,88 @@ function renderResults() {
 
     }).join("");
 
-  const comments = game5Comments.map(c => `
-    <div class="comment">
-      <strong>${esc(c.title)}:</strong> ${esc(c.text)}
+  return pageHeader("RISULTATI","201") + `
+    <div class="panel">
+      <h2>◈ RISULTATI DELLA LEGA</h2>
+      <p>Giornate fantasy 1–9 · 63 incontri conclusi.</p>
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>G</th>
+              <th>Squadra ospite</th>
+              <th class="num">PF</th>
+              <th class="num">PF</th>
+              <th>Squadra casa</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
     </div>
-  `).join("");
-
-  return pageHeader("RISULTATI DELLA LEGA","201") +
-
-    `<p class="notice">
-      La squadra evidenziata in verde è la vincitrice.
-    </p>
-
-    <div style="overflow-x:auto">
-      <table>
-        <thead>
-          <tr>
-            <th>G.</th>
-            <th>Trasferta</th>
-            <th>Punti</th>
-            <th>Punti</th>
-            <th>Casa</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </div>
-
 
     <div class="panel">
-      <h2>◈ PROSSIMO APPUNTAMENTO</h2>
-      <p class="notice">
-        La Game 7 si conclude il 5 novembre.
-        Sette incontri in programma: tutte le squadre tornano in campo
-        per una nuova giornata di fantasy basket.
-      </p>
+      <h2>◈ COMMENTI E RISULTATI - GAME 9</h2>
+      ${game9Comments.map(c => `
+        <div class="comment">
+          <strong>${esc(c.title)}</strong><br>
+          ${esc(c.text)}
+        </div>
+      `).join("")}
+      <p>La Game 9 si è conclusa il 9 novembre.</p>
     </div>`;
+}
 
+
+/* CALCOLO CLASSIFICA */
+
+function calculateStandings() {
+
+  const standings = {};
+
+  knownTeams.forEach(team => {
+    standings[team] = {
+      team,
+      played:0,
+      wins:0,
+      losses:0,
+      pointsFor:0,
+      pointsAgainst:0
+    };
+  });
+
+  results.forEach(g => {
+
+    const away = standings[g.away];
+    const home = standings[g.home];
+
+    if (!away || !home) return;
+
+    away.played++;
+    home.played++;
+
+    away.pointsFor += g.awayScore;
+    away.pointsAgainst += g.homeScore;
+
+    home.pointsFor += g.homeScore;
+    home.pointsAgainst += g.awayScore;
+
+    if (g.awayScore > g.homeScore) {
+      away.wins++;
+      home.losses++;
+    } else {
+      home.wins++;
+      away.losses++;
+    }
+
+  });
+
+  return Object.values(standings)
+    .sort((a,b) =>
+      b.wins-a.wins ||
+      (b.pointsFor-b.pointsAgainst)-(a.pointsFor-a.pointsAgainst) ||
+      b.pointsFor-a.pointsFor
+    );
 }
 
 
@@ -1602,52 +606,43 @@ function renderResults() {
 
 function renderStandings() {
 
-  const standings = buildStandings();
+  const standings = calculateStandings();
 
   const rows = standings.map((t,i) => `
     <tr>
-      <td>${String(i+1).padStart(2,"0")}</td>
-      <td>${esc(t.name)}</td>
-      <td class="num">${t.w}-${t.l}</td>
-      <td class="num">${fmt(t.pf)}</td>
-      <td class="num">${fmt(t.pa)}</td>
-      <td class="num ${t.diff>=0?'green':'red'}">
-        ${t.diff>0?'+':''}${fmt(t.diff)}
-      </td>
-      <td class="num">${t.streak}</td>
+      <td>${i+1}</td>
+      <td class="team-name">${esc(t.team)}</td>
+      <td class="num">${t.played}</td>
+      <td class="num winner">${t.wins}</td>
+      <td class="num">${t.losses}</td>
+      <td class="num">${fmt(t.pointsFor)}</td>
+      <td class="num">${fmt(t.pointsAgainst)}</td>
+      <td class="num">${fmt(t.pointsFor-t.pointsAgainst)}</td>
     </tr>
   `).join("");
 
-  return pageHeader("CLASSIFICA GENERALE","202") +
-
-    `<div style="overflow-x:auto">
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Squadra</th>
-            <th>V-P</th>
-            <th>PF</th>
-            <th>PS</th>
-            <th>Diff.</th>
-            <th>Serie</th>
-          </tr>
-        </thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </div>
-
-    <p class="notice">
-      PF = punti fatti · PS = punti subiti ·
-      Diff. = PF − PS · V-P = vittorie-sconfitte.
-    </p>
-
-    <p class="notice">
-      La classifica è calcolata automaticamente sulla base dei risultati
-      inseriti. In caso di parità, viene utilizzato il punteggio fantasy
-      totale come criterio successivo.
-    </p>`;
-
+  return pageHeader("CLASSIFICA","202") + `
+    <div class="panel">
+      <h2>◈ CLASSIFICA GENERALE</h2>
+      <p>Classifica aggiornata dopo la Game 9 · 63 incontri disputati.</p>
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Squadra</th>
+              <th class="num">G</th>
+              <th class="num">V</th>
+              <th class="num">P</th>
+              <th class="num">PF</th>
+              <th class="num">PS</th>
+              <th class="num">Diff.</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>`;
 }
 
 
@@ -1655,92 +650,66 @@ function renderStandings() {
 
 function renderHighlights() {
 
-  const biggest = [...results].sort((a,b) =>
-    Math.abs(b.awayScore-b.homeScore) -
-    Math.abs(a.awayScore-a.homeScore)
+  const best = [...results].sort((a,b) =>
+    Math.max(b.awayScore,b.homeScore) -
+    Math.max(a.awayScore,a.homeScore)
   )[0];
 
-  const allScores = results.flatMap(g => [
-    {team:g.away,score:g.awayScore},
-    {team:g.home,score:g.homeScore}
-  ]).sort((a,b) => b.score-a.score);
+  const highScore = Math.max(best.awayScore,best.homeScore);
+  const highTeam = best.awayScore > best.homeScore
+    ? best.away
+    : best.home;
 
-  const high = allScores[0];
-  const low = allScores[allScores.length-1];
+  const game9Best = results
+    .filter(g => g.week===9)
+    .sort((a,b) =>
+      Math.max(b.awayScore,b.homeScore) -
+      Math.max(a.awayScore,a.homeScore)
+    )[0];
 
-  const wins = results.filter(
-    g => g.awayScore!==g.homeScore
-  ).length;
+  const game9Score = Math.max(
+    game9Best.awayScore,
+    game9Best.homeScore
+  );
 
-  const game5Best = [...results]
-    .filter(g => g.week===5)
-    .flatMap(g => [
-      {team:g.away,score:g.awayScore},
-      {team:g.home,score:g.homeScore}
-    ])
-    .sort((a,b) => b.score-a.score)[0];
+  const game9Team = game9Best.awayScore > game9Best.homeScore
+    ? game9Best.away
+    : game9Best.home;
 
-  return pageHeader("IN EVIDENZA","203") +
+  return pageHeader("IN EVIDENZA","203") + `
 
-    `<div class="grid">
+    <div class="panel">
+      <h2>◈ MIGLIOR PUNTEGGIO STAGIONALE</h2>
+      <div class="highlight">
+        <strong>${esc(highTeam)}</strong><br>
+        ${fmt(highScore)} punti · Game ${best.week}
+      </div>
+    </div>
 
-      <section class="panel">
-        <h2>◈ MIGLIOR PUNTEGGIO</h2>
-        <div class="highlight" style="font-size:1.45rem">
-          ${fmt(high.score)}
-        </div>
-        <p class="green">${esc(high.team)}</p>
-        <p class="notice">
-          Miglior punteggio registrato nelle giornate concluse.
-        </p>
-      </section>
+    <div class="panel">
+      <h2>◈ MIGLIOR PUNTEGGIO GAME 9</h2>
+      <div class="highlight">
+        <strong>${esc(game9Team)}</strong><br>
+        ${fmt(game9Score)} punti
+      </div>
+      <p>Il miglior risultato individuale della Game 9.</p>
+    </div>
 
-      <section class="panel">
-        <h2>◈ PUNTEGGIO PIÙ BASSO</h2>
-        <div class="highlight" style="font-size:1.45rem">
-          ${fmt(low.score)}
-        </div>
-        <p>${esc(low.team)}</p>
-        <p class="notice">
-          Punteggio più basso registrato nelle giornate concluse.
-        </p>
-      </section>
-
-      <section class="panel">
-        <h2>◈ VITTORIA PIÙ LARGA</h2>
-        <div class="highlight" style="font-size:1.45rem">
-          +${fmt(Math.abs(biggest.awayScore-biggest.homeScore))}
-        </div>
-        <p class="green">${esc(winner(biggest))}</p>
-        <p class="notice">
-          ${esc(biggest.away)} ${fmt(biggest.awayScore)}
-          – ${fmt(biggest.homeScore)} ${esc(biggest.home)}
-        </p>
-      </section>
-
-      <section class="panel">
-        <h2>◈ INCONTRI CON VINCITORE</h2>
-        <div class="highlight" style="font-size:1.45rem">
-          ${wins} / ${results.length}
-        </div>
-        <p class="notice">
-          Statistiche aggiornate dai risultati inseriti.
-        </p>
-      </section>
-
-      <section class="panel">
-        <h2>◈ MIGLIOR PUNTEGGIO GAME 5</h2>
-        <div class="highlight" style="font-size:1.45rem">
-          ${fmt(game5Best.score)}
-        </div>
-        <p class="green">${esc(game5Best.team)}</p>
-        <p class="notice">
-          Il miglior risultato individuale dell'ultima giornata.
-        </p>
-      </section>
-
+    <div class="panel">
+      <h2>◈ STATISTICHE DELLA LEGA</h2>
+      <div class="record-row">
+        <span>Incontri disputati</span>
+        <span>${results.length}</span>
+      </div>
+      <div class="record-row">
+        <span>Giornate concluse</span>
+        <span>${new Set(results.map(g => g.week)).size}</span>
+      </div>
+      <div class="record-row">
+        <span>Squadre partecipanti</span>
+        <span>${knownTeams.length}</span>
+      </div>
     </div>`;
-
 }
 
 
@@ -1748,35 +717,29 @@ function renderHighlights() {
 
 function renderRecords() {
 
-  const all = results.flatMap(g => [
-    {
-      team:g.away,
-      score:g.awayScore,
-      opponent:g.home,
-      week:g.week
-    },
-    {
-      team:g.home,
-      score:g.homeScore,
-      opponent:g.away,
-      week:g.week
-    }
-  ]);
+  const high = results
+    .flatMap(g => [
+      {team:g.away,score:g.awayScore,week:g.week},
+      {team:g.home,score:g.homeScore,week:g.week}
+    ])
+    .sort((a,b) => b.score-a.score)[0];
 
-  const high = [...all].sort((a,b)=>b.score-a.score)[0];
-  const low = [...all].sort((a,b)=>a.score-b.score)[0];
+  const low = results
+    .flatMap(g => [
+      {team:g.away,score:g.awayScore,week:g.week},
+      {team:g.home,score:g.homeScore,week:g.week}
+    ])
+    .sort((a,b) => a.score-b.score)[0];
 
-  const margin = [...results].map(g => ({
-    winner:winner(g),
+  const margins = results.map(g => ({
     diff:Math.abs(g.awayScore-g.homeScore),
-    matchup:`${g.away} – ${g.home}`
-  })).sort((a,b)=>b.diff-a.diff)[0];
+    winner:g.awayScore > g.homeScore ? g.away : g.home,
+    matchup:`${g.away} - ${g.home}`,
+    week:g.week
+  }));
 
-  const close = [...results].map(g => ({
-    winner:winner(g),
-    diff:Math.abs(g.awayScore-g.homeScore),
-    matchup:`${g.away} – ${g.home}`
-  })).sort((a,b)=>a.diff-b.diff)[0];
+  const margin = [...margins].sort((a,b) => b.diff-a.diff)[0];
+  const close = [...margins].sort((a,b) => a.diff-b.diff)[0];
 
   return pageHeader("RECORD DELLA LEGA","204") +
 
@@ -1809,7 +772,7 @@ function renderRecords() {
 
       <div class="record-row">
         <span>Giornate concluse</span>
-        <span>5</span>
+        <span>${new Set(results.map(g => g.week)).size}</span>
       </div>
 
     </div>`;
@@ -1817,131 +780,133 @@ function renderRecords() {
 }
 
 
+/* COMMENTI PROSSIME GIORNATE */
+
+const upcomingComments = {
+  10: [
+    "Paerfetto e Semsonite si affrontano nella prima giornata dopo il nono turno.",
+    "Golden State sfida Gradisca in una partita importante per la classifica.",
+    "giordi affronta VaSulMus: entrambe cercano una nuova vittoria.",
+    "Coca incontra Miami nella Game 10.",
+    "rualis affronta Ufficio dopo i risultati positivi dell'ultimo turno.",
+    "Detroit e Wisp si preparano a una nuova sfida.",
+    "Monty affronta Portland: in palio punti importanti."
+  ],
+  11: [
+    "Semsonite affronta rualis nella Game 11.",
+    "Gradisca sfida Wisp.",
+    "VaSulMus incontra Golden State.",
+    "Miami affronta giordi.",
+    "Ufficio e Coca si incontrano nella nuova giornata.",
+    "Portland sfida Detroit.",
+    "Paerfetto affronta Monty."
+  ],
+  12: [
+    "Monty affronta Semsonite.",
+    "Portland sfida Gradisca.",
+    "Wisp incontra VaSulMus.",
+    "Golden State affronta Miami.",
+    "giordi sfida Ufficio.",
+    "rualis incontra Coca.",
+    "Detroit affronta Paerfetto."
+  ]
+};
+
 
 /* PAGINA 205 - CALENDARIO */
 
 function renderSchedule() {
 
   let content = "";
+  const scheduleWeeks = [10, 11, 12];
 
-  [10].forEach(week => {
+  scheduleWeeks.forEach(week => {
 
-    const games = upcoming.filter(g => g.week===week);
+    const games = upcoming.filter(g => g.week === week);
+    if (!games.length) return;
 
-    const date = games.length ? games[0].date : "";
+    const date = games[0].date || "DATA DA DEFINIRE";
 
     content += `
       <div class="week-heading">
-        GAME ${week} · ${date} · 7 INCONTRI
-      </div>
-
-      <div style="overflow-x:auto">
-        <table>
-          <thead>
-            <tr>
-              <th>Trasferta</th>
-              <th></th>
-              <th>Casa</th>
-              <th>Matchup</th>
-            </tr>
-          </thead>
-          <tbody>
-    `;
+        GAME ${week} · ${date} · ${games.length} INCONTRI
+      </div>`;
 
     games.forEach((g,i) => {
 
-      const matchupUrl =
-        `https://sports.ws/fantasy-basketball/game/270328/${g.week}/${g.id}`;
-
       content += `
-        <tr>
-          <td>${esc(g.away)}</td>
-          <td class="cyan"> @ </td>
-          <td>${esc(g.home)}</td>
-          <td>
-            <a class="matchup-link"
-               href="${matchupUrl}"
-               target="_blank">
-              MATCHUP
-            </a>
-          </td>
-        </tr>
-
-        <tr>
-          <td colspan="4">
-            <div class="comment">
-              ${esc(upcomingComments[week][i])}
-            </div>
-          </td>
-        </tr>
-      `;
+        <div class="matchup">
+          <div class="away">
+            <span class="team">${esc(g.away)}</span>
+            <span class="id">${esc(g.id || "")}</span>
+          </div>
+          <div class="vs">@</div>
+          <div class="home">
+            <span class="team">${esc(g.home)}</span>
+          </div>
+        </div>
+        <div class="comment">
+          ${esc((upcomingComments[week] || [])[i] || "Partita in programma.")}
+        </div>`;
 
     });
 
-    content += `
-          </tbody>
-        </table>
-      </div>
-    `;
-
   });
 
-  return pageHeader("PROSSIMI INCONTRI","205") +
-
-    `<p class="notice">
-      Calendario delle prossime partite.
-      Seleziona MATCHUP per aprire la partita su Sports.ws.
-    </p>
-
-    ${content}
-
-    <p class="notice">
-      Le anticipazioni sono commenti editoriali basati sui risultati
-      precedenti e non previsioni dei punteggi.
-    </p>`;
-
+  return pageHeader("CALENDARIO","205") +
+    `<div class="panel">
+      <h2>◈ PROSSIME PARTITE</h2>
+      ${content || '<div class="empty">Nessuna partita in programma.</div>'}
+    </div>`;
 }
 
 
-/* GESTIONE PAGINE */
+/* FUNZIONI GENERALI */
 
-const pages = {
-  "201":renderResults,
-  "202":renderStandings,
-  "203":renderHighlights,
-  "204":renderRecords,
-  "205":renderSchedule
-};
+function esc(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  })[char]);
+}
 
 
 function showPage(page) {
 
-  document.getElementById("content").innerHTML =
-    pages[page]();
-
   document.querySelectorAll("nav button").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.dataset.page===page
-    );
+    button.classList.toggle("active",button.dataset.page===page);
   });
 
+  const pages = {
+    "201":renderResults,
+    "202":renderStandings,
+    "203":renderHighlights,
+    "204":renderRecords,
+    "205":renderSchedule
+  };
+
+  document.getElementById("content").innerHTML =
+    pages[page] ? pages[page]() : pages["201"]();
+
   const labels = {
-    "201":"RISULTATI GARE",
-    "202":"CLASSIFICA",
-    "203":"MOMENTI DELLA LEGA",
+    "201":"RISULTATI GAME 1–9",
+    "202":"CLASSIFICA DOPO LA GAME 9",
+    "203":"STATISTICHE E IN EVIDENZA",
     "204":"RECORD PROVVISORI",
-    "205":"GARE IN PROGRAMMA"
+    "205":"GARE 10–12 · IN PROGRAMMA"
   };
 
   document.getElementById("current-label").textContent =
-    labels[page];
+    labels[page] || labels["201"];
 
   document.getElementById("ticker").textContent =
     page==="202"
-      ? "CLASSIFICA AGGIORNATA AUTOMATICAMENTE"
+      ? "CLASSIFICA AGGIORNATA AUTOMATICAMENTE DOPO LA GAME 9"
       : page==="205"
-        ? "GAME 6: 4 NOVEMBRE · GAME 7: 5 NOVEMBRE · GAME 8: 7 NOVEMBRE"
+        ? "GAME 10: 11 NOVEMBRE · GAME 11: 14 NOVEMBRE · GAME 12: 16 NOVEMBRE"
         : "BGBIGREUNION — RISULTATI E STATISTICHE DELLA LEGA";
 
 }
