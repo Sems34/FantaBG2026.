@@ -290,7 +290,7 @@ AGGIORNARE I DATI:
 */
 
 const leagueName = "BGBigReunion";
-const gameweek = 6;
+const gameweek = 9;
 
 /* RISULTATI DELLE GIORNATE CONCLUSE */
 
@@ -1531,38 +1531,7 @@ function pageHeader(title,page) {
 }
 
 
-/* COMMENTI GAME 5 */
 
-const game5Comments = [
-  {
-    title:"VaSulMus",
-    text:"Prestazione dominante contro Semsonite. La vittoria per 136.1 a 91.6 rappresenta uno dei successi più netti della giornata."
-  },
-  {
-    title:"Gradisca",
-    text:"Vittoria importante contro Miami. Una partita combattuta fino alla fine, decisa da appena 4 punti."
-  },
-  {
-    title:"Golden State",
-    text:"Grande prova offensiva: 149.2 punti e vittoria convincente contro Wisp."
-  },
-  {
-    title:"Portland",
-    text:"È il miglior punteggio della Game 5: 164.7 punti contro giordi. Una prestazione da protagonista."
-  },
-  {
-    title:"Coca",
-    text:"Successo di misura contro Paerfetto. Bastano 3.8 punti di vantaggio per portare a casa la vittoria."
-  },
-  {
-    title:"rualis",
-    text:"Ottima giornata per rualis, che supera Monty con 149.5 punti e conquista una vittoria convincente."
-  },
-  {
-    title:"Detroit",
-    text:"Finale combattuto contro Ufficio: Detroit vince per soli 2.2 punti."
-  }
-];
 
 
 /* PAGINA 201 - RISULTATI */
@@ -1597,7 +1566,6 @@ function renderResults() {
   return pageHeader("RISULTATI DELLA LEGA","201") +
 
     `<p class="notice">
-      Giornate fantasy 1–5 · 35 incontri conclusi.
       La squadra evidenziata in verde è la vincitrice.
     </p>
 
@@ -1617,10 +1585,6 @@ function renderResults() {
       </table>
     </div>
 
-    <div class="panel">
-      <h2>◈ COMMENTI E RISULTATI - GAME 5</h2>
-      ${comments}
-    </div>
 
     <div class="panel">
       <h2>◈ PROSSIMO APPUNTAMENTO</h2>
@@ -1656,11 +1620,7 @@ function renderStandings() {
 
   return pageHeader("CLASSIFICA GENERALE","202") +
 
-    `<p class="notice">
-      Classifica aggiornata dopo la Game 5 · 35 incontri disputati.
-    </p>
-
-    <div style="overflow-x:auto">
+    `<div style="overflow-x:auto">
       <table>
         <thead>
           <tr>
@@ -1864,7 +1824,7 @@ function renderSchedule() {
 
   let content = "";
 
-  [6,7,8].forEach(week => {
+  [10].forEach(week => {
 
     const games = upcoming.filter(g => g.week===week);
 
