@@ -341,7 +341,7 @@ AGGIORNARE I DATI:
 */
 
 const leagueName = "BGBigReunion";
-const gameweek = 9; // ultima giornata conclusa
+const gameweek = 10; // ultima giornata conclusa
 
 /* RISULTATI DELLE GIORNATE CONCLUSE */
 
@@ -427,20 +427,22 @@ const results = [
   {week:9, date:"9 NOVEMBRE", away:"Golden State", awayScore:119.3, home:"Detroit", homeScore:136.0, id:"9/14"},
   {week:9, date:"9 NOVEMBRE", away:"Wisp", awayScore:92.4, home:"Monty", homeScore:109.3, id:"10/13"},
   {week:9, date:"9 NOVEMBRE", away:"Portland", awayScore:126.7, home:"Paerfetto", homeScore:74.7, id:"11/12"}
+
+    // GIORNATA 10 - 11 NOVEMBRE
+  {week:10, date:"11 NOVEMBRE", away:"Paerfetto", awayScore:72.8, home:"Semsonite", homeScore:128.3, id:"12/1"},
+  {week:10, date:"11 NOVEMBRE", away:"Golden State", awayScore:94.4, home:"Gradisca", homeScore:135.5, id:"9/2"},
+  {week:10, date:"11 NOVEMBRE", away:"giordi", awayScore:88.7, home:"VaSulMus", homeScore:150.4, id:"8/3"},
+  {week:10, date:"11 NOVEMBRE", away:"Coca", awayScore:76.5, home:"Miami", homeScore:134.8, id:"7/4"},
+  {week:10, date:"11 NOVEMBRE", away:"rualis", awayScore:141.1, home:"Ufficio", homeScore:131.0, id:"6/5"},
+  {week:10, date:"11 NOVEMBRE", away:"Detroit", awayScore:134.8, home:"Wisp", homeScore:133.0, id:"14/10"},
+  {week:10, date:"11 NOVEMBRE", away:"Monty", awayScore:138.4, home:"Portland", homeScore:121.5, id:"13/11"},
 ];
 
 
 /* PROSSIME PARTITE */
 
 const upcoming = [
-  // GIORNATA 10 - 11 NOVEMBRE
-  {week:10, date:"11 NOVEMBRE", away:"Paerfetto", home:"Semsonite", id:"12/1"},
-  {week:10, date:"11 NOVEMBRE", away:"Golden State", home:"Gradisca", id:"9/2"},
-  {week:10, date:"11 NOVEMBRE", away:"giordi", home:"VaSulMus", id:"8/3"},
-  {week:10, date:"11 NOVEMBRE", away:"Coca", home:"Miami", id:"7/4"},
-  {week:10, date:"11 NOVEMBRE", away:"rualis", home:"Ufficio", id:"6/5"},
-  {week:10, date:"11 NOVEMBRE", away:"Detroit", home:"Wisp", id:"14/10"},
-  {week:10, date:"11 NOVEMBRE", away:"Monty", home:"Portland", id:"13/11"},
+
 
   // GIORNATA 11 - 14 NOVEMBRE
   {week:11, date:"14 NOVEMBRE", away:"Semsonite", home:"rualis", id:"1/6"},
@@ -483,17 +485,6 @@ function pageHeader(title,page) {
 }
 
 
-/* COMMENTI GAME 9 */
-
-const game9Comments = [
-  {title:"Ufficio", text:"Supera Semsonite per 111.8 a 104.9 e conquista una vittoria importante."},
-  {title:"rualis", text:"Batte Miami per 126.5 a 109.5 e continua il suo buon momento."},
-  {title:"VaSulMus", text:"Firma il miglior punteggio della giornata: 149.4 punti contro Coca."},
-  {title:"giordi", text:"Supera Gradisca per 131.3 a 122.1."},
-  {title:"Portland", text:"Vince contro Paerfetto per 126.7 a 74.7."},
-  {title:"Monty", text:"Realizza 109.3 punti e supera Wisp, fermo a 92.4."},
-  {title:"Detroit", text:"Batte Golden State per 136.0 a 119.3."}
-];
 
 
 /* PAGINA 201 - RISULTATI */
@@ -520,7 +511,6 @@ function renderResults() {
   return pageHeader("RISULTATI","201") + `
     <div class="panel">
       <h2>◈ RISULTATI DELLA LEGA</h2>
-      <p>Giornate fantasy 1–9 · 63 incontri conclusi.</p>
       <div style="overflow-x:auto">
         <table>
           <thead>
@@ -537,16 +527,7 @@ function renderResults() {
       </div>
     </div>
 
-    <div class="panel">
-      <h2>◈ COMMENTI E RISULTATI - GAME 9</h2>
-      ${game9Comments.map(c => `
-        <div class="comment">
-          <strong>${esc(c.title)}</strong><br>
-          ${esc(c.text)}
-        </div>
-      `).join("")}
-      <p>La Game 9 si è conclusa il 9 novembre.</p>
-    </div>`;
+    
 }
 
 
@@ -624,7 +605,6 @@ function renderStandings() {
   return pageHeader("CLASSIFICA","202") + `
     <div class="panel">
       <h2>◈ CLASSIFICA GENERALE</h2>
-      <p>Classifica aggiornata dopo la Game 9 · 63 incontri disputati.</p>
       <div style="overflow-x:auto">
         <table>
           <thead>
@@ -660,21 +640,21 @@ function renderHighlights() {
     ? best.away
     : best.home;
 
-  const game9Best = results
+  const game10Best = results
     .filter(g => g.week===9)
     .sort((a,b) =>
       Math.max(b.awayScore,b.homeScore) -
       Math.max(a.awayScore,a.homeScore)
     )[0];
 
-  const game9Score = Math.max(
-    game9Best.awayScore,
-    game9Best.homeScore
+  const game10Score = Math.max(
+    game10Best.awayScore,
+    game10Best.homeScore
   );
 
-  const game9Team = game9Best.awayScore > game9Best.homeScore
-    ? game9Best.away
-    : game9Best.home;
+  const game10Team = game10Best.awayScore > game10Best.homeScore
+    ? game10Best.away
+    : game10Best.home;
 
   return pageHeader("IN EVIDENZA","203") + `
 
@@ -780,37 +760,6 @@ function renderRecords() {
 }
 
 
-/* COMMENTI PROSSIME GIORNATE */
-
-const upcomingComments = {
-  10: [
-    "Paerfetto e Semsonite si affrontano nella prima giornata dopo il nono turno.",
-    "Golden State sfida Gradisca in una partita importante per la classifica.",
-    "giordi affronta VaSulMus: entrambe cercano una nuova vittoria.",
-    "Coca incontra Miami nella Game 10.",
-    "rualis affronta Ufficio dopo i risultati positivi dell'ultimo turno.",
-    "Detroit e Wisp si preparano a una nuova sfida.",
-    "Monty affronta Portland: in palio punti importanti."
-  ],
-  11: [
-    "Semsonite affronta rualis nella Game 11.",
-    "Gradisca sfida Wisp.",
-    "VaSulMus incontra Golden State.",
-    "Miami affronta giordi.",
-    "Ufficio e Coca si incontrano nella nuova giornata.",
-    "Portland sfida Detroit.",
-    "Paerfetto affronta Monty."
-  ],
-  12: [
-    "Monty affronta Semsonite.",
-    "Portland sfida Gradisca.",
-    "Wisp incontra VaSulMus.",
-    "Golden State affronta Miami.",
-    "giordi sfida Ufficio.",
-    "rualis incontra Coca.",
-    "Detroit affronta Paerfetto."
-  ]
-};
 
 
 /* PAGINA 205 - CALENDARIO */
@@ -818,7 +767,7 @@ const upcomingComments = {
 function renderSchedule() {
 
   let content = "";
-  const scheduleWeeks = [10, 11, 12];
+  const scheduleWeeks = [11, 12];
 
   scheduleWeeks.forEach(week => {
 
@@ -892,11 +841,11 @@ function showPage(page) {
     pages[page] ? pages[page]() : pages["201"]();
 
   const labels = {
-    "201":"RISULTATI GAME 1–9",
-    "202":"CLASSIFICA DOPO LA GAME 9",
+    "201":"RISULTATI",
+    "202":"CLASSIFICA",
     "203":"STATISTICHE E IN EVIDENZA",
     "204":"RECORD PROVVISORI",
-    "205":"GARE 10–12 · IN PROGRAMMA"
+    "205":"GARE IN PROGRAMMA"
   };
 
   document.getElementById("current-label").textContent =
@@ -904,9 +853,8 @@ function showPage(page) {
 
   document.getElementById("ticker").textContent =
     page==="202"
-      ? "CLASSIFICA AGGIORNATA AUTOMATICAMENTE DOPO LA GAME 9"
+      ? "CLASSIFICA AGGIORNATA"
       : page==="205"
-        ? "GAME 10: 11 NOVEMBRE · GAME 11: 14 NOVEMBRE · GAME 12: 16 NOVEMBRE"
         : "BGBIGREUNION — RISULTATI E STATISTICHE DELLA LEGA";
 
 }
